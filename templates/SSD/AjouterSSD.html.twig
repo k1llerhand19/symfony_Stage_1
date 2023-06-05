@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SSD{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h1>SSD</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Creer :</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+                <FORM action="" METHOD="GET">
+                     <label for="nom">nom  :</label>
+                        <br>
+                    <input type="String" id="nom" name="nom1">
+                        <br>
+                        <br>
+                    <label for="Modele">Modele :</label>
+                        <br>
+                    <input type="String" id="modele" name="modele1">
+                        <br>
+                        <br>
+                    <label for="Marque">Marque :</label>
+                        <br>
+                    <input type="String" id="Marque" name="Marque1">
+                        <br>
+                        <br>	   
+                    <label for="Capacite_Stockage">Capacité :</label>
+                        <br>
+                    <input type="number" id="Capa_HDD" name="Capa_HDD1">
+                        <br>
+                        <br>
+                    <label for="Vitesse_lecture">Vitesse de lecture :</label>
+                        <br>
+                    <input type="number" id="Vitesse_lecture" name="Vitesse_lecture1">
+                        <br>
+                        <br>
+                        <label for="Vitesse_Ecriture">Vitesse de écriture :</label>
+                        <br>
+                    <input type="number" id="Vitesse_Ecriture" name="Vitesse_Ecriture1">
+                        <br>
+                        <br>	   
+                    <label for="Stock">Stock :</label>
+                        <br>
+                    <input type="number" id="stock" name="stock1">	
+                        <br>
+                        <br>
+                    <input type="submit" value="Créer" name="creer">
+                </form>
+            </div>
+        </div>
+      </div> 
+
+{% endblock %}
+
