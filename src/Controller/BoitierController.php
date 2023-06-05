@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BoitierController extends AbstractController
 {
-    #[Route('/boitier', name: 'app_boitier')]
+    #[Route('/boitier', name: 'boitier.show')]
     public function index(): Response
     {
         return $this->render('boitier/index.html.twig', [
@@ -16,7 +16,7 @@ class BoitierController extends AbstractController
         ]);
     }
 
-    #[Route('/AjouterBoitier', name: 'app_AjouterBoitier')]
+    #[Route('boitier/ajouter', name: 'boitier.add')]
     public function AjouterBoitier(): Response
     {
         return $this->render('boitier/AjouterBoitier.html.twig', [
@@ -24,7 +24,7 @@ class BoitierController extends AbstractController
         ]);
     }
 
-    #[Route('/ModifierBoitier', name: 'app_ModifierBoitier')]
+    #[Route('boitier/{id}', name: 'boitier.edit')]
     public function ModifierBoitier(): Response
     {
         return $this->render('boitier/ModifierBoitier.html.twig', [

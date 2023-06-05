@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CarteMereController extends AbstractController
 {
-    #[Route('/carte/mere', name: 'app_carte_mere')]
+    #[Route('/cartemere', name: 'cartemere.show')]
     public function index(): Response
     {
         return $this->render('carte_mere/index.html.twig', [
@@ -16,7 +16,7 @@ class CarteMereController extends AbstractController
         ]);
     }
 
-    #[Route('/AjouterCM', name: 'app_AjouterCM')]
+    #[Route('cartemere/ajouter', name: 'cartemere.add')]
     public function AjouterBoitier(): Response
     {
         return $this->render('carte_mere/AjouterCM.html.twig', [
@@ -24,7 +24,7 @@ class CarteMereController extends AbstractController
         ]);
     }
 
-    #[Route('/ModifierGPU', name: 'app_ModifierCM')]
+    #[Route('cartemere/{id}', name: 'cartemere.edit')]
     public function ModifierGPU(): Response
     {
         return $this->render('carte_mere/ModifierCM.html.twig', [

@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProcesseurController extends AbstractController
 {
-    #[Route('/processeur', name: 'app_processeur')]
+    #[Route('/processeur', name: 'processeur.show')]
     public function index(): Response
     {
         return $this->render('processeur/index.html.twig', [
@@ -16,7 +16,7 @@ class ProcesseurController extends AbstractController
         ]);
     }
 
-    #[Route('/Ajouter_Proce', name: 'app_AjouterProce')]
+    #[Route('processeur/ajouter', name: 'processeur.add')]
     public function AjouterProce(): Response
     {
        
@@ -24,7 +24,7 @@ class ProcesseurController extends AbstractController
             'controller_name' => 'AccueilController',
         ]);
     }
-    #[Route('/Modifierr_Proce', name: 'app_ModifierProce')]
+    #[Route('processeur/{id}', name: 'processeur.edit')]
     public function ModifierProce(): Response
     {
        

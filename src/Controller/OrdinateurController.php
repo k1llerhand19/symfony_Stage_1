@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class OrdinateurController extends AbstractController
 {
-    #[Route('/ordinateur', name: 'app_ordinateur')]
+    #[Route('/ordinateur', name: 'ordinateur.show')]
     public function index(): Response
     {
         return $this->render('ordinateur/index.html.twig', [
@@ -16,7 +16,7 @@ class OrdinateurController extends AbstractController
         ]);
     }
 
-    #[Route('/AjouterOrdinateur', name: 'app_AjouterOrdinateur')]
+    #[Route('ordinateur/ajouter', name: 'ordinateur.add')]
     public function AjouterOrdinateur(): Response
     {
         return $this->render('ordinateur/AjouterOrdinateur.html.twig', [
@@ -24,7 +24,7 @@ class OrdinateurController extends AbstractController
         ]);
     }
 
-    #[Route('/ModifierOrdinateur', name: 'app_ModifierOrdinateur')]
+    #[Route('ordinateur/{id}', name: 'ordinateur.edit')]
     public function ModifierOrdinateur(): Response
     {
         return $this->render('ordinateur/ModifierOrdinateur.html.twig', [

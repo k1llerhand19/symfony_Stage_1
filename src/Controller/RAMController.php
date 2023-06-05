@@ -8,7 +8,16 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RAMController extends AbstractController
 {
-    #[Route('/creerram', name: 'app_creerram')]
+   
+    #[Route('/ram', name: 'ram.show')]
+    public function AccueilRam(): Response
+    {
+        return $this->render('Ram/AccueilRam.html.twig', [
+            'controller_name' => 'RAMController',
+        ]);
+    }
+    
+    #[Route('ram/ajouter', name: 'ram.add')]
     public function CreerRam(): Response
     {
         return $this->render('Ram/CreerRam.html.twig', [
@@ -16,7 +25,7 @@ class RAMController extends AbstractController
         ]);
     }
 
-    #[Route('/modifierRam', name: 'app_ModifierRam')]
+    #[Route('ram/{id}', name: 'ram.edit')]
     public function ModifierRam(): Response
     {
         return $this->render('Ram/ModifierRam.html.twig', [
@@ -24,11 +33,5 @@ class RAMController extends AbstractController
         ]);
     }
 
-    #[Route('/AccueilRam', name: 'app_AccueilRam')]
-    public function AccueilRam(): Response
-    {
-        return $this->render('Ram/AccueilRam.html.twig', [
-            'controller_name' => 'RAMController',
-        ]);
-    }
+    
 }

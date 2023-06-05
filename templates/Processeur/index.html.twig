@@ -143,10 +143,10 @@
 
     <script>
         function redirection_Creer() {
-            window.location.href = "{{ path('app_AjouterProce')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
+            window.location.href = "{{ path('processeur.add')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
         }
         function redirection_Modifier() {
-            window.location.href = "{{ path('app_ModifierProce')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
+            window.location.href = "{{ path('processeur.edit')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
         }
     </script>
 {% endblock %}

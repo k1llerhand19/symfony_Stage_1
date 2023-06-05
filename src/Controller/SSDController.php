@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SSDController extends AbstractController
 {
-    #[Route('/s/s/d', name: 'app_s_s_d')]
+    #[Route('/ssd', name: 'ssd.show')]
     public function index(): Response
     {
         return $this->render('ssd/index.html.twig', [
@@ -16,7 +16,7 @@ class SSDController extends AbstractController
         ]);
     }
 
-    #[Route('/AjouterSSD', name: 'app_AjouterSSD')]
+    #[Route('ssd/ajouter', name: 'ssd.add')]
     public function AjouterSSD(): Response
     {
         return $this->render('ssd/AjouterSSD.html.twig', [
@@ -24,7 +24,7 @@ class SSDController extends AbstractController
         ]);
     }
 
-    #[Route('/ModifierSSD', name: 'app_ModifierSSD')]
+    #[Route('ssd/{id}', name: 'ssd.edit')]
     public function ModifierSSD(): Response
     {
         return $this->render('ssd/ModifierSSD.html.twig', [

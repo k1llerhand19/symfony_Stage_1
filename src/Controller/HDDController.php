@@ -16,7 +16,7 @@ class HDDController extends AbstractController
         ]);
     }
 
-    #[Route('hdd/ajoute', name: 'hdd.add')]
+    #[Route('hdd/ajouter', name: 'hdd.add')]
     public function AjouterHDD(): Response
     {
         return $this->render('HDD/AjouterHdd.html.twig', [

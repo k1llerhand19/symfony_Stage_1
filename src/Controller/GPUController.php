@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class GPUController extends AbstractController
 {
-    #[Route('/g/p/u', name: 'app_g_p_u')]
+    #[Route('/gpu', name: 'gpu.show')]
     public function index(): Response
     {
         return $this->render('gpu/index.html.twig', [
@@ -16,7 +16,7 @@ class GPUController extends AbstractController
         ]);
     }
 
-    #[Route('/AjouterGPU', name: 'app_AjouterGPU')]
+    #[Route('gpu/ajouter', name: 'gpu.add')]
     public function AjouterBoitier(): Response
     {
         return $this->render('gpu/Creer_GPU.html.twig', [
@@ -24,7 +24,7 @@ class GPUController extends AbstractController
         ]);
     }
 
-    #[Route('/ModifierGPU', name: 'app_ModifierGPU')]
+    #[Route('gpu/{id}', name: 'gpu.edit')]
     public function ModifierGPU(): Response
     {
         return $this->render('gpu/ModifierGPU.html.twig', [

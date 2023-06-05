@@ -179,10 +179,10 @@
 
     <script>
         function redirection_Creer() {
-            window.location.href = "{{ path('app_AjouterOrdinateur')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
+            window.location.href = "{{ path('ordinateur.add')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
         }
         function redirection_Modifier() {
-            window.location.href = "{{ path('app_ModifierOrdinateur')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
+            window.location.href = "{{ path('ordinateur.edit')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
         }
     </script>
 {% endblock %}

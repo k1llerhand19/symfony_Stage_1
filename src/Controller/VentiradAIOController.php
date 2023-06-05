@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class VentiradAIOController extends AbstractController
 {
-    #[Route('/ventirad/a/i/o', name: 'app_ventirad_a_i_o')]
+    #[Route('/ventiradaio', name: 'ventiradaio.show')]
     public function index(): Response
     {
         return $this->render('ventirad_aio/index.html.twig', [
@@ -16,7 +16,7 @@ class VentiradAIOController extends AbstractController
         ]);
     }
 
-    #[Route('/ModifierVentiradAIO', name: 'app_AjouterVentirad_a_i_o')]
+    #[Route('ventiradaio/ajouter', name: 'ventiradaio.add')]
     public function AjouterVentiradAIO(): Response
     {
         return $this->render('ventirad_aio/AjouterVentiRADAIO.html.twig', [
@@ -24,7 +24,7 @@ class VentiradAIOController extends AbstractController
         ]);
     }
 
-    #[Route('/ModifierVentiradAIO', name: 'app_ModifierVentirad_a_i_o')]
+    #[Route('ventiradaio/{id}', name: 'ventiradaio.edit')]
     public function ModifierVentiradAIO(): Response
     {
         return $this->render('ventirad_aio/ModifierVentiRADAIO.html.twig', [

@@ -134,10 +134,10 @@
     
     <script>
         function redirection_Creer() {
-            window.location.href = "{{ path('app_AjouterVentirad_a_i_o')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
+            window.location.href = "{{ path('ventiradaio.add')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
         }
         function redirection_Modifier() {
-            window.location.href = "{{ path('app_ModifierVentirad_a_i_o')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
+            window.location.href = "{{ path('ventiradaio.edit')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
         }
     </script>
 {% endblock %}

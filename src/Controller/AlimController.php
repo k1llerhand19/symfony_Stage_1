@@ -16,7 +16,7 @@ class AlimController extends AbstractController
         ]);
     }
 
-    #[Route('/AjouterAlim', name: 'alim.add')]
+    #[Route('alim/ajouter', name: 'alim.add')]
     public function AjouterAlim(): Response
     {
         return $this->render('alim/AjouterAlim.html.twig', [
@@ -24,7 +24,7 @@ class AlimController extends AbstractController
         ]);
     }
 
-    #[Route('/ModifierAlim', name: 'alim.edit')]
+    #[Route('alim/{id}', name: 'alim.edit')]
     public function ModifierAlim(): Response
     {
         return $this->render('alim/ModifierAlim.html.twig', [
