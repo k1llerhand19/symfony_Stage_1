@@ -19,6 +19,9 @@ class GpuFormType extends AbstractType
             ->add('Taille_memoire')
             ->add('Type_memoire')
             ->add('Stock')
+            ->add('Ordinateur', EntityType::class, [
+                'class' => Gpu::class,
+                'choice_label' => 'Gpu',])
         ;
     }
 

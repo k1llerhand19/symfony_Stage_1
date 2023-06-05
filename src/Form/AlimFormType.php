@@ -17,6 +17,9 @@ class AlimFormType extends AbstractType
             ->add('Marque')
             ->add('Puissance')
             ->add('Stock')
+            ->add('Ordinateur', EntityType::class, [
+                'class' => Alimentation::class,
+                'choice_label' => 'Alim',]);
         ;
     }
 

@@ -19,6 +19,9 @@ class SsdFormType extends AbstractType
             ->add('Vitesse_lecture')
             ->add('Vitesse_ecriture')
             ->add('Stock')
+            ->add('Ordinateur', EntityType::class, [
+                'class' => Ssd::class,
+                'choice_label' => 'Ssd',])
         ;
     }
 

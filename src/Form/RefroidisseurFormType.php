@@ -19,6 +19,9 @@ class RefroidisseurFormType extends AbstractType
             ->add('Vitesse_rota_mini')
             ->add('Vitesse_rota_maxi')
             ->add('Stock')
+            ->add('Ordinateur', EntityType::class, [
+                'class' => Refroidisseur::class,
+                'choice_label' => 'Refroidisseur',])
         ;
     }
 
