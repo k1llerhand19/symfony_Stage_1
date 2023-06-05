@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AlimController extends AbstractController
 {
-    #[Route('/alim', name: 'app_alim')]
+    #[Route('/alim', name: 'alim.show')]
     public function index(): Response
     {
         return $this->render('alim/index.html.twig', [
@@ -16,7 +16,7 @@ class AlimController extends AbstractController
         ]);
     }
 
-    #[Route('/AjouterAlim', name: 'app_AjouterAlim')]
+    #[Route('/AjouterAlim', name: 'alim.add')]
     public function AjouterAlim(): Response
     {
         return $this->render('alim/AjouterAlim.html.twig', [
@@ -24,7 +24,7 @@ class AlimController extends AbstractController
         ]);
     }
 
-    #[Route('/ModifierAlim', name: 'app_ModifierAlim')]
+    #[Route('/ModifierAlim', name: 'alim.edit')]
     public function ModifierAlim(): Response
     {
         return $this->render('alim/ModifierAlim.html.twig', [

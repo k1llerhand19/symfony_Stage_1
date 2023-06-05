@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HDDController extends AbstractController
 {
-    #[Route('/hdd', name: 'app_h_d_d')]
+    #[Route('/hdd', name: 'hdd.show')]
     public function index(): Response
     {
         return $this->render('HDD/index.html.twig', [
@@ -16,7 +16,7 @@ class HDDController extends AbstractController
         ]);
     }
 
-    #[Route('hdd/ajoute', name: 'app_AjouterHDD')]
+    #[Route('hdd/ajoute', name: 'hdd.add')]
     public function AjouterHDD(): Response
     {
         return $this->render('HDD/AjouterHdd.html.twig', [
@@ -24,7 +24,7 @@ class HDDController extends AbstractController
         ]);
     }
 
-    #[Route('hdd/{slug}', name: 'app_ModifierHDD')]
+    #[Route('hdd/{id}', name: 'hdd.edit')]
     public function ModifierHDD(): Response
     {
         return $this->render('HDD/ModifierHDD.html.twig', [
