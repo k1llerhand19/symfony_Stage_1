@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\CarteMereRepository;
+use App\Repository\CmRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: CarteMereRepository::class)]
-class CarteMere
+#[ORM\Entity(repositoryClass: CmRepository::class)]
+class Cm
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,36 +21,36 @@ class CarteMere
     #[ORM\Column(length: 25)]
     private ?string $Modele = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 25)]
     private ?string $Marque = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Support_Processeur = null;
+    private ?string $Support_processeur = null;
 
     #[ORM\Column]
-    private ?int $Nbr_CPU_Supporte = null;
+    private ?int $Nbr_cpu_supporte = null;
 
     #[ORM\Column(length: 25)]
     private ?string $Chipset = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Type_Memoire = null;
+    private ?string $Type_memoire = null;
 
     #[ORM\Column]
-    private ?int $Capa_Maximale_RAM_Par_Slot = null;
+    private ?int $Capa_maxi_ram_par_slot = null;
 
     #[ORM\Column]
-    private ?int $Capa_Maximale_RAM = null;
+    private ?int $Capa_maxi_ram = null;
 
     #[ORM\Column]
     private ?int $Stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Id_CM', targetEntity: Ordinateur::class)]
-    private Collection $Id_CM;
+    #[ORM\OneToMany(mappedBy: 'Cm', targetEntity: Ordinateur::class)]
+    private Collection $Cm_Id;
 
     public function __construct()
     {
-        $this->Id_CM = new ArrayCollection();
+        $this->Cm_Id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -96,24 +96,24 @@ class CarteMere
 
     public function getSupportProcesseur(): ?string
     {
-        return $this->Support_Processeur;
+        return $this->Support_processeur;
     }
 
-    public function setSupportProcesseur(string $Support_Processeur): self
+    public function setSupportProcesseur(string $Support_processeur): self
     {
-        $this->Support_Processeur = $Support_Processeur;
+        $this->Support_processeur = $Support_processeur;
 
         return $this;
     }
 
-    public function getNbrCPUSupporte(): ?int
+    public function getNbrCpuSupporte(): ?int
     {
-        return $this->Nbr_CPU_Supporte;
+        return $this->Nbr_cpu_supporte;
     }
 
-    public function setNbrCPUSupporte(int $Nbr_CPU_Supporte): self
+    public function setNbrCpuSupporte(int $Nbr_cpu_supporte): self
     {
-        $this->Nbr_CPU_Supporte = $Nbr_CPU_Supporte;
+        $this->Nbr_cpu_supporte = $Nbr_cpu_supporte;
 
         return $this;
     }
@@ -132,36 +132,36 @@ class CarteMere
 
     public function getTypeMemoire(): ?string
     {
-        return $this->Type_Memoire;
+        return $this->Type_memoire;
     }
 
-    public function setTypeMemoire(string $Type_Memoire): self
+    public function setTypeMemoire(string $Type_memoire): self
     {
-        $this->Type_Memoire = $Type_Memoire;
+        $this->Type_memoire = $Type_memoire;
 
         return $this;
     }
 
-    public function getCapaMaximaleRAMParSlot(): ?int
+    public function getCapaMaxiRamParSlot(): ?int
     {
-        return $this->Capa_Maximale_RAM_Par_Slot;
+        return $this->Capa_maxi_ram_par_slot;
     }
 
-    public function setCapaMaximaleRAMParSlot(int $Capa_Maximale_RAM_Par_Slot): self
+    public function setCapaMaxiRamParSlot(int $Capa_maxi_ram_par_slot): self
     {
-        $this->Capa_Maximale_RAM_Par_Slot = $Capa_Maximale_RAM_Par_Slot;
+        $this->Capa_maxi_ram_par_slot = $Capa_maxi_ram_par_slot;
 
         return $this;
     }
 
-    public function getCapaMaximaleRAM(): ?int
+    public function getCapaMaxiRam(): ?int
     {
-        return $this->Capa_Maximale_RAM;
+        return $this->Capa_maxi_ram;
     }
 
-    public function setCapaMaximaleRAM(int $Capa_Maximale_RAM): self
+    public function setCapaMaxiRam(int $Capa_maxi_ram): self
     {
-        $this->Capa_Maximale_RAM = $Capa_Maximale_RAM;
+        $this->Capa_maxi_ram = $Capa_maxi_ram;
 
         return $this;
     }
@@ -181,30 +181,33 @@ class CarteMere
     /**
      * @return Collection<int, Ordinateur>
      */
-    public function getIdCM(): Collection
+    public function getCmId(): Collection
     {
-        return $this->Id_CM;
+        return $this->Cm_Id;
     }
 
-    public function addIdCM(Ordinateur $idCM): self
+    public function addCmId(Ordinateur $cmId): self
     {
-        if (!$this->Id_CM->contains($idCM)) {
-            $this->Id_CM->add($idCM);
-            $idCM->setIdCM($this);
+        if (!$this->Cm_Id->contains($cmId)) {
+            $this->Cm_Id->add($cmId);
+            $cmId->setCm($this);
         }
 
         return $this;
     }
 
-    public function removeIdCM(Ordinateur $idCM): self
+    public function removeCmId(Ordinateur $cmId): self
     {
-        if ($this->Id_CM->removeElement($idCM)) {
+        if ($this->Cm_Id->removeElement($cmId)) {
             // set the owning side to null (unless already changed)
-            if ($idCM->getIdCM() === $this) {
-                $idCM->setIdCM(null);
+            if ($cmId->getCm() === $this) {
+                $cmId->setCm(null);
             }
         }
 
         return $this;
     }
+
+
+
 }

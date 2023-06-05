@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\CarteGraphique;
+use App\Entity\Cm;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<CarteGraphique>
+ * @extends ServiceEntityRepository<Cm>
  *
- * @method CarteGraphique|null find($id, $lockMode = null, $lockVersion = null)
- * @method CarteGraphique|null findOneBy(array $criteria, array $orderBy = null)
- * @method CarteGraphique[]    findAll()
- * @method CarteGraphique[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Cm|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Cm|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Cm[]    findAll()
+ * @method Cm[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CarteGraphiqueRepository extends ServiceEntityRepository
+class CmRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, CarteGraphique::class);
+        parent::__construct($registry, Cm::class);
     }
 
-    public function save(CarteGraphique $entity, bool $flush = false): void
+    public function save(Cm $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class CarteGraphiqueRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(CarteGraphique $entity, bool $flush = false): void
+    public function remove(Cm $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class CarteGraphiqueRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return CarteGraphique[] Returns an array of CarteGraphique objects
+//     * @return Cm[] Returns an array of Cm objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class CarteGraphiqueRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?CarteGraphique
+//    public function findOneBySomeField($value): ?Cm
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')

@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\RAM;
+use App\Entity\Ram;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<RAM>
+ * @extends ServiceEntityRepository<Ram>
  *
- * @method RAM|null find($id, $lockMode = null, $lockVersion = null)
- * @method RAM|null findOneBy(array $criteria, array $orderBy = null)
- * @method RAM[]    findAll()
- * @method RAM[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Ram|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Ram|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Ram[]    findAll()
+ * @method Ram[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class RAMRepository extends ServiceEntityRepository
+class RamRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, RAM::class);
+        parent::__construct($registry, Ram::class);
     }
 
-    public function save(RAM $entity, bool $flush = false): void
+    public function save(Ram $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class RAMRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(RAM $entity, bool $flush = false): void
+    public function remove(Ram $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class RAMRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return RAM[] Returns an array of RAM objects
+//     * @return Ram[] Returns an array of Ram objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class RAMRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?RAM
+//    public function findOneBySomeField($value): ?Ram
 //    {
 //        return $this->createQueryBuilder('r')
 //            ->andWhere('r.exampleField = :val')

@@ -21,25 +21,26 @@ class Boitier
     #[ORM\Column(length: 25)]
     private ?string $Modele = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 25)]
     private ?string $Marque = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $Format_Boitier = null;
+    private ?string $Format_boitier = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $Format_Alim = null;
+    private ?string $Format_alim = null;
 
     #[ORM\Column]
     private ?int $Stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Id_Boitier', targetEntity: Ordinateur::class)]
-    private Collection $Id_Boitier;
+    #[ORM\OneToMany(mappedBy: 'Boitier', targetEntity: Ordinateur::class)]
+    private Collection $Boitier_Id;
 
     public function __construct()
     {
-        $this->Id_Boitier = new ArrayCollection();
+        $this->Boitier_Id = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -84,24 +85,24 @@ class Boitier
 
     public function getFormatBoitier(): ?string
     {
-        return $this->Format_Boitier;
+        return $this->Format_boitier;
     }
 
-    public function setFormatBoitier(string $Format_Boitier): self
+    public function setFormatBoitier(string $Format_boitier): self
     {
-        $this->Format_Boitier = $Format_Boitier;
+        $this->Format_boitier = $Format_boitier;
 
         return $this;
     }
 
     public function getFormatAlim(): ?string
     {
-        return $this->Format_Alim;
+        return $this->Format_alim;
     }
 
-    public function setFormatAlim(string $Format_Alim): self
+    public function setFormatAlim(string $Format_alim): self
     {
-        $this->Format_Alim = $Format_Alim;
+        $this->Format_alim = $Format_alim;
 
         return $this;
     }
@@ -121,30 +122,32 @@ class Boitier
     /**
      * @return Collection<int, Ordinateur>
      */
-    public function getIdBoitier(): Collection
+    public function getBoitierId(): Collection
     {
-        return $this->Id_Boitier;
+        return $this->Boitier_Id;
     }
 
-    public function addIdBoitier(Ordinateur $idBoitier): self
+    public function addBoitierId(Ordinateur $boitierId): self
     {
-        if (!$this->Id_Boitier->contains($idBoitier)) {
-            $this->Id_Boitier->add($idBoitier);
-            $idBoitier->setIdBoitier($this);
+        if (!$this->Boitier_Id->contains($boitierId)) {
+            $this->Boitier_Id->add($boitierId);
+            $boitierId->setBoitier($this);
         }
 
         return $this;
     }
 
-    public function removeIdBoitier(Ordinateur $idBoitier): self
+    public function removeBoitierId(Ordinateur $boitierId): self
     {
-        if ($this->Id_Boitier->removeElement($idBoitier)) {
+        if ($this->Boitier_Id->removeElement($boitierId)) {
             // set the owning side to null (unless already changed)
-            if ($idBoitier->getIdBoitier() === $this) {
-                $idBoitier->setIdBoitier(null);
+            if ($boitierId->getBoitier() === $this) {
+                $boitierId->setBoitier(null);
             }
         }
 
         return $this;
     }
+
+
 }

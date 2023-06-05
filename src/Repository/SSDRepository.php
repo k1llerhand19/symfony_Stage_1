@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\SSD;
+use App\Entity\Ssd;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<SSD>
+ * @extends ServiceEntityRepository<Ssd>
  *
- * @method SSD|null find($id, $lockMode = null, $lockVersion = null)
- * @method SSD|null findOneBy(array $criteria, array $orderBy = null)
- * @method SSD[]    findAll()
- * @method SSD[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Ssd|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Ssd|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Ssd[]    findAll()
+ * @method Ssd[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SSDRepository extends ServiceEntityRepository
+class SsdRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, SSD::class);
+        parent::__construct($registry, Ssd::class);
     }
 
-    public function save(SSD $entity, bool $flush = false): void
+    public function save(Ssd $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class SSDRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(SSD $entity, bool $flush = false): void
+    public function remove(Ssd $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class SSDRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return SSD[] Returns an array of SSD objects
+//     * @return Ssd[] Returns an array of Ssd objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class SSDRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?SSD
+//    public function findOneBySomeField($value): ?Ssd
 //    {
 //        return $this->createQueryBuilder('s')
 //            ->andWhere('s.exampleField = :val')

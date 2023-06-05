@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\HDDRepository;
+use App\Repository\HddRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: HDDRepository::class)]
-class HDD
+#[ORM\Entity(repositoryClass: HddRepository::class)]
+class Hdd
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,24 +21,24 @@ class HDD
     #[ORM\Column(length: 25)]
     private ?string $Modele = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 25)]
     private ?string $Marque = null;
 
     #[ORM\Column]
     private ?int $Capacite = null;
 
     #[ORM\Column]
-    private ?int $Vitesse_Rotation = null;
+    private ?int $Vitesse_rotation = null;
 
     #[ORM\Column]
     private ?int $Stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Id_HDD', targetEntity: Ordinateur::class)]
-    private Collection $Id_Alim;
+    #[ORM\OneToMany(mappedBy: 'Hdd', targetEntity: Ordinateur::class)]
+    private Collection $Hdd_Id;
 
     public function __construct()
     {
-        $this->Id_Alim = new ArrayCollection();
+        $this->Hdd_Id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -96,12 +96,12 @@ class HDD
 
     public function getVitesseRotation(): ?int
     {
-        return $this->Vitesse_Rotation;
+        return $this->Vitesse_rotation;
     }
 
-    public function setVitesseRotation(int $Vitesse_Rotation): self
+    public function setVitesseRotation(int $Vitesse_rotation): self
     {
-        $this->Vitesse_Rotation = $Vitesse_Rotation;
+        $this->Vitesse_rotation = $Vitesse_rotation;
 
         return $this;
     }
@@ -121,30 +121,32 @@ class HDD
     /**
      * @return Collection<int, Ordinateur>
      */
-    public function getIdAlim(): Collection
+    public function getHddId(): Collection
     {
-        return $this->Id_Alim;
+        return $this->Hdd_Id;
     }
 
-    public function addIdAlim(Ordinateur $idAlim): self
+    public function addHddId(Ordinateur $hddId): self
     {
-        if (!$this->Id_Alim->contains($idAlim)) {
-            $this->Id_Alim->add($idAlim);
-            $idAlim->setIdHDD($this);
+        if (!$this->Hdd_Id->contains($hddId)) {
+            $this->Hdd_Id->add($hddId);
+            $hddId->setHdd($this);
         }
 
         return $this;
     }
 
-    public function removeIdAlim(Ordinateur $idAlim): self
+    public function removeHddId(Ordinateur $hddId): self
     {
-        if ($this->Id_Alim->removeElement($idAlim)) {
+        if ($this->Hdd_Id->removeElement($hddId)) {
             // set the owning side to null (unless already changed)
-            if ($idAlim->getIdHDD() === $this) {
-                $idAlim->setIdHDD(null);
+            if ($hddId->getHdd() === $this) {
+                $hddId->setHdd(null);
             }
         }
 
         return $this;
     }
+
+   
 }

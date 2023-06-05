@@ -21,30 +21,30 @@ class Processeur
     #[ORM\Column(length: 25)]
     private ?string $Modele = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 25)]
     private ?string $Marque = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Support_Processeur = null;
+    private ?string $Support_processeur = null;
 
     #[ORM\Column]
-    private ?float $Frequence_CPU = null;
+    private ?float $Frequence_cpu = null;
 
     #[ORM\Column]
-    private ?int $Nbr_Core = null;
+    private ?int $Nbr_threads = null;
 
     #[ORM\Column]
-    private ?int $Nbr_Threads = null;
+    private ?int $Nbr_core = null;
 
     #[ORM\Column]
     private ?int $Stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Id_Processeur', targetEntity: Ordinateur::class)]
-    private Collection $Id_Processeur;
+    #[ORM\OneToMany(mappedBy: 'Processeur', targetEntity: Ordinateur::class)]
+    private Collection $Processeur_Id;
 
     public function __construct()
     {
-        $this->Id_Processeur = new ArrayCollection();
+        $this->Processeur_Id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -90,48 +90,48 @@ class Processeur
 
     public function getSupportProcesseur(): ?string
     {
-        return $this->Support_Processeur;
+        return $this->Support_processeur;
     }
 
-    public function setSupportProcesseur(string $Support_Processeur): self
+    public function setSupportProcesseur(string $Support_processeur): self
     {
-        $this->Support_Processeur = $Support_Processeur;
+        $this->Support_processeur = $Support_processeur;
 
         return $this;
     }
 
-    public function getFrequenceCPU(): ?float
+    public function getFrequenceCpu(): ?float
     {
-        return $this->Frequence_CPU;
+        return $this->Frequence_cpu;
     }
 
-    public function setFrequenceCPU(float $Frequence_CPU): self
+    public function setFrequenceCpu(float $Frequence_cpu): self
     {
-        $this->Frequence_CPU = $Frequence_CPU;
-
-        return $this;
-    }
-
-    public function getNbrCore(): ?int
-    {
-        return $this->Nbr_Core;
-    }
-
-    public function setNbrCore(int $Nbr_Core): self
-    {
-        $this->Nbr_Core = $Nbr_Core;
+        $this->Frequence_cpu = $Frequence_cpu;
 
         return $this;
     }
 
     public function getNbrThreads(): ?int
     {
-        return $this->Nbr_Threads;
+        return $this->Nbr_threads;
     }
 
-    public function setNbrThreads(int $Nbr_Threads): self
+    public function setNbrThreads(int $Nbr_threads): self
     {
-        $this->Nbr_Threads = $Nbr_Threads;
+        $this->Nbr_threads = $Nbr_threads;
+
+        return $this;
+    }
+
+    public function getNbrCore(): ?int
+    {
+        return $this->Nbr_core;
+    }
+
+    public function setNbrCore(int $Nbr_core): self
+    {
+        $this->Nbr_core = $Nbr_core;
 
         return $this;
     }
@@ -151,30 +151,31 @@ class Processeur
     /**
      * @return Collection<int, Ordinateur>
      */
-    public function getIdProcesseur(): Collection
+    public function getProcesseurId(): Collection
     {
-        return $this->Id_Processeur;
+        return $this->Processeur_Id;
     }
 
-    public function addIdProcesseur(Ordinateur $idProcesseur): self
+    public function addProcesseurId(Ordinateur $processeurId): self
     {
-        if (!$this->Id_Processeur->contains($idProcesseur)) {
-            $this->Id_Processeur->add($idProcesseur);
-            $idProcesseur->setIdProcesseur($this);
+        if (!$this->Processeur_Id->contains($processeurId)) {
+            $this->Processeur_Id->add($processeurId);
+            $processeurId->setProcesseur($this);
         }
 
         return $this;
     }
 
-    public function removeIdProcesseur(Ordinateur $idProcesseur): self
+    public function removeProcesseurId(Ordinateur $processeurId): self
     {
-        if ($this->Id_Processeur->removeElement($idProcesseur)) {
+        if ($this->Processeur_Id->removeElement($processeurId)) {
             // set the owning side to null (unless already changed)
-            if ($idProcesseur->getIdProcesseur() === $this) {
-                $idProcesseur->setIdProcesseur(null);
+            if ($processeurId->getProcesseur() === $this) {
+                $processeurId->setProcesseur(null);
             }
         }
 
         return $this;
     }
+
 }

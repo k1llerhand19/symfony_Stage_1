@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\RAMRepository;
+use App\Repository\RamRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: RAMRepository::class)]
-class RAM
+#[ORM\Entity(repositoryClass: RamRepository::class)]
+class Ram
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -25,23 +25,23 @@ class RAM
     private ?string $Marque = null;
 
     #[ORM\Column(length: 15)]
-    private ?string $Type_Memoire = null;
+    private ?string $Type_memoire = null;
 
     #[ORM\Column]
-    private ?int $Frequence_Memoire = null;
+    private ?int $Frequence_memoire = null;
 
     #[ORM\Column]
-    private ?int $Capacite_Par_Barrette = null;
+    private ?int $Capacite_par_barrette = null;
 
     #[ORM\Column]
     private ?int $Stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Id_RAM', targetEntity: Ordinateur::class)]
-    private Collection $Id_RAM;
+    #[ORM\OneToMany(mappedBy: 'Ram', targetEntity: Ordinateur::class)]
+    private Collection $Ram_Id;
 
     public function __construct()
     {
-        $this->Id_RAM = new ArrayCollection();
+        $this->Ram_Id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -87,36 +87,36 @@ class RAM
 
     public function getTypeMemoire(): ?string
     {
-        return $this->Type_Memoire;
+        return $this->Type_memoire;
     }
 
-    public function setTypeMemoire(string $Type_Memoire): self
+    public function setTypeMemoire(string $Type_memoire): self
     {
-        $this->Type_Memoire = $Type_Memoire;
+        $this->Type_memoire = $Type_memoire;
 
         return $this;
     }
 
     public function getFrequenceMemoire(): ?int
     {
-        return $this->Frequence_Memoire;
+        return $this->Frequence_memoire;
     }
 
-    public function setFrequenceMemoire(int $Frequence_Memoire): self
+    public function setFrequenceMemoire(int $Frequence_memoire): self
     {
-        $this->Frequence_Memoire = $Frequence_Memoire;
+        $this->Frequence_memoire = $Frequence_memoire;
 
         return $this;
     }
 
     public function getCapaciteParBarrette(): ?int
     {
-        return $this->Capacite_Par_Barrette;
+        return $this->Capacite_par_barrette;
     }
 
-    public function setCapaciteParBarrette(int $Capacite_Par_Barrette): self
+    public function setCapaciteParBarrette(int $Capacite_par_barrette): self
     {
-        $this->Capacite_Par_Barrette = $Capacite_Par_Barrette;
+        $this->Capacite_par_barrette = $Capacite_par_barrette;
 
         return $this;
     }
@@ -136,30 +136,31 @@ class RAM
     /**
      * @return Collection<int, Ordinateur>
      */
-    public function getIdRAM(): Collection
+    public function getRamId(): Collection
     {
-        return $this->Id_RAM;
+        return $this->Ram_Id;
     }
 
-    public function addIdRAM(Ordinateur $idRAM): self
+    public function addRamId(Ordinateur $ramId): self
     {
-        if (!$this->Id_RAM->contains($idRAM)) {
-            $this->Id_RAM->add($idRAM);
-            $idRAM->setIdRAM($this);
+        if (!$this->Ram_Id->contains($ramId)) {
+            $this->Ram_Id->add($ramId);
+            $ramId->setRam($this);
         }
 
         return $this;
     }
 
-    public function removeIdRAM(Ordinateur $idRAM): self
+    public function removeRamId(Ordinateur $ramId): self
     {
-        if ($this->Id_RAM->removeElement($idRAM)) {
+        if ($this->Ram_Id->removeElement($ramId)) {
             // set the owning side to null (unless already changed)
-            if ($idRAM->getIdRAM() === $this) {
-                $idRAM->setIdRAM(null);
+            if ($ramId->getRam() === $this) {
+                $ramId->setRam(null);
             }
         }
 
         return $this;
     }
+
 }

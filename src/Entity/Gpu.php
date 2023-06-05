@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\CarteGraphiqueRepository;
+use App\Repository\GpuRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: CarteGraphiqueRepository::class)]
-class CarteGraphique
+#[ORM\Entity(repositoryClass: GpuRepository::class)]
+class Gpu
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,27 +21,27 @@ class CarteGraphique
     #[ORM\Column(length: 25)]
     private ?string $Modele = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 25)]
     private ?string $Marque = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Chipset_Graphique = null;
+    private ?string $Chipset_graphique = null;
 
     #[ORM\Column]
-    private ?int $Taille_Memoire = null;
+    private ?int $Taille_memoire = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Type_Memoire = null;
+    private ?string $Type_memoire = null;
 
     #[ORM\Column]
     private ?int $Stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Id_CG', targetEntity: Ordinateur::class)]
-    private Collection $Id_CG;
+    #[ORM\OneToMany(mappedBy: 'Gpu', targetEntity: Ordinateur::class)]
+    private Collection $Gpu_Id;
 
     public function __construct()
     {
-        $this->Id_CG = new ArrayCollection();
+        $this->Gpu_Id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -87,36 +87,36 @@ class CarteGraphique
 
     public function getChipsetGraphique(): ?string
     {
-        return $this->Chipset_Graphique;
+        return $this->Chipset_graphique;
     }
 
-    public function setChipsetGraphique(string $Chipset_Graphique): self
+    public function setChipsetGraphique(string $Chipset_graphique): self
     {
-        $this->Chipset_Graphique = $Chipset_Graphique;
+        $this->Chipset_graphique = $Chipset_graphique;
 
         return $this;
     }
 
     public function getTailleMemoire(): ?int
     {
-        return $this->Taille_Memoire;
+        return $this->Taille_memoire;
     }
 
-    public function setTailleMemoire(int $Taille_Memoire): self
+    public function setTailleMemoire(int $Taille_memoire): self
     {
-        $this->Taille_Memoire = $Taille_Memoire;
+        $this->Taille_memoire = $Taille_memoire;
 
         return $this;
     }
 
     public function getTypeMemoire(): ?string
     {
-        return $this->Type_Memoire;
+        return $this->Type_memoire;
     }
 
-    public function setTypeMemoire(string $Type_Memoire): self
+    public function setTypeMemoire(string $Type_memoire): self
     {
-        $this->Type_Memoire = $Type_Memoire;
+        $this->Type_memoire = $Type_memoire;
 
         return $this;
     }
@@ -136,30 +136,31 @@ class CarteGraphique
     /**
      * @return Collection<int, Ordinateur>
      */
-    public function getIdCG(): Collection
+    public function getGpuId(): Collection
     {
-        return $this->Id_CG;
+        return $this->Gpu_Id;
     }
 
-    public function addIdCG(Ordinateur $idCG): self
+    public function addGpuId(Ordinateur $gpuId): self
     {
-        if (!$this->Id_CG->contains($idCG)) {
-            $this->Id_CG->add($idCG);
-            $idCG->setIdCG($this);
+        if (!$this->Gpu_Id->contains($gpuId)) {
+            $this->Gpu_Id->add($gpuId);
+            $gpuId->setGpu($this);
         }
 
         return $this;
     }
 
-    public function removeIdCG(Ordinateur $idCG): self
+    public function removeGpuId(Ordinateur $gpuId): self
     {
-        if ($this->Id_CG->removeElement($idCG)) {
+        if ($this->Gpu_Id->removeElement($gpuId)) {
             // set the owning side to null (unless already changed)
-            if ($idCG->getIdCG() === $this) {
-                $idCG->setIdCG(null);
+            if ($gpuId->getGpu() === $this) {
+                $gpuId->setGpu(null);
             }
         }
 
         return $this;
     }
+
 }

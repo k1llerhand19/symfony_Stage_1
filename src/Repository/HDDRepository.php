@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\HDD;
+use App\Entity\Hdd;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<HDD>
+ * @extends ServiceEntityRepository<Hdd>
  *
- * @method HDD|null find($id, $lockMode = null, $lockVersion = null)
- * @method HDD|null findOneBy(array $criteria, array $orderBy = null)
- * @method HDD[]    findAll()
- * @method HDD[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Hdd|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Hdd|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Hdd[]    findAll()
+ * @method Hdd[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class HDDRepository extends ServiceEntityRepository
+class HddRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, HDD::class);
+        parent::__construct($registry, Hdd::class);
     }
 
-    public function save(HDD $entity, bool $flush = false): void
+    public function save(Hdd $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class HDDRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(HDD $entity, bool $flush = false): void
+    public function remove(Hdd $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class HDDRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return HDD[] Returns an array of HDD objects
+//     * @return Hdd[] Returns an array of Hdd objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class HDDRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?HDD
+//    public function findOneBySomeField($value): ?Hdd
 //    {
 //        return $this->createQueryBuilder('h')
 //            ->andWhere('h.exampleField = :val')

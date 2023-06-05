@@ -30,12 +30,12 @@ class Alimentation
     #[ORM\Column]
     private ?int $Stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Id_Alim', targetEntity: Ordinateur::class)]
-    private Collection $Id_Alim;
+    #[ORM\OneToMany(mappedBy: 'Alim', targetEntity: Ordinateur::class)]
+    private Collection $Alim_Id;
 
     public function __construct()
     {
-        $this->Id_Alim = new ArrayCollection();
+        $this->Alim_Id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -106,30 +106,31 @@ class Alimentation
     /**
      * @return Collection<int, Ordinateur>
      */
-    public function getIdAlim(): Collection
+    public function getAlimId(): Collection
     {
-        return $this->Id_Alim;
+        return $this->Alim_Id;
     }
 
-    public function addIdAlim(Ordinateur $idAlim): self
+    public function addAlimId(Ordinateur $alimId): self
     {
-        if (!$this->Id_Alim->contains($idAlim)) {
-            $this->Id_Alim->add($idAlim);
-            $idAlim->setIdAlim($this);
+        if (!$this->Alim_Id->contains($alimId)) {
+            $this->Alim_Id->add($alimId);
+            $alimId->setAlim($this);
         }
 
         return $this;
     }
 
-    public function removeIdAlim(Ordinateur $idAlim): self
+    public function removeAlimId(Ordinateur $alimId): self
     {
-        if ($this->Id_Alim->removeElement($idAlim)) {
+        if ($this->Alim_Id->removeElement($alimId)) {
             // set the owning side to null (unless already changed)
-            if ($idAlim->getIdAlim() === $this) {
-                $idAlim->setIdAlim(null);
+            if ($alimId->getAlim() === $this) {
+                $alimId->setAlim(null);
             }
         }
 
         return $this;
     }
+
 }

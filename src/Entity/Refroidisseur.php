@@ -25,23 +25,23 @@ class Refroidisseur
     private ?string $Marque = null;
 
     #[ORM\Column(length: 15)]
-    private ?string $Support_Processeur = null;
+    private ?string $Support_processeur = null;
 
     #[ORM\Column]
-    private ?int $Vitesse_Rota_Mini = null;
+    private ?int $Vitesse_rota_mini = null;
 
     #[ORM\Column]
-    private ?int $Vitesse_Rota_Maxi = null;
+    private ?int $Vitesse_rota_maxi = null;
 
     #[ORM\Column]
     private ?int $Stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Id_Refroidisseur', targetEntity: Ordinateur::class)]
-    private Collection $Id_Refroidisseur;
+    #[ORM\OneToMany(mappedBy: 'Refroidisseur', targetEntity: Ordinateur::class)]
+    private Collection $Refroidisseur_Id;
 
     public function __construct()
     {
-        $this->Id_Refroidisseur = new ArrayCollection();
+        $this->Refroidisseur_Id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -87,36 +87,36 @@ class Refroidisseur
 
     public function getSupportProcesseur(): ?string
     {
-        return $this->Support_Processeur;
+        return $this->Support_processeur;
     }
 
-    public function setSupportProcesseur(string $Support_Processeur): self
+    public function setSupportProcesseur(string $Support_processeur): self
     {
-        $this->Support_Processeur = $Support_Processeur;
+        $this->Support_processeur = $Support_processeur;
 
         return $this;
     }
 
     public function getVitesseRotaMini(): ?int
     {
-        return $this->Vitesse_Rota_Mini;
+        return $this->Vitesse_rota_mini;
     }
 
-    public function setVitesseRotaMini(int $Vitesse_Rota_Mini): self
+    public function setVitesseRotaMini(int $Vitesse_rota_mini): self
     {
-        $this->Vitesse_Rota_Mini = $Vitesse_Rota_Mini;
+        $this->Vitesse_rota_mini = $Vitesse_rota_mini;
 
         return $this;
     }
 
     public function getVitesseRotaMaxi(): ?int
     {
-        return $this->Vitesse_Rota_Maxi;
+        return $this->Vitesse_rota_maxi;
     }
 
-    public function setVitesseRotaMaxi(int $Vitesse_Rota_Maxi): self
+    public function setVitesseRotaMaxi(int $Vitesse_rota_maxi): self
     {
-        $this->Vitesse_Rota_Maxi = $Vitesse_Rota_Maxi;
+        $this->Vitesse_rota_maxi = $Vitesse_rota_maxi;
 
         return $this;
     }
@@ -136,27 +136,27 @@ class Refroidisseur
     /**
      * @return Collection<int, Ordinateur>
      */
-    public function getIdRefroidisseur(): Collection
+    public function getRefroidisseurId(): Collection
     {
-        return $this->Id_Refroidisseur;
+        return $this->Refroidisseur_Id;
     }
 
-    public function addIdRefroidisseur(Ordinateur $idRefroidisseur): self
+    public function addRefroidisseurId(Ordinateur $refroidisseurId): self
     {
-        if (!$this->Id_Refroidisseur->contains($idRefroidisseur)) {
-            $this->Id_Refroidisseur->add($idRefroidisseur);
-            $idRefroidisseur->setIdRefroidisseur($this);
+        if (!$this->Refroidisseur_Id->contains($refroidisseurId)) {
+            $this->Refroidisseur_Id->add($refroidisseurId);
+            $refroidisseurId->setRefroidisseur($this);
         }
 
         return $this;
     }
 
-    public function removeIdRefroidisseur(Ordinateur $idRefroidisseur): self
+    public function removeRefroidisseurId(Ordinateur $refroidisseurId): self
     {
-        if ($this->Id_Refroidisseur->removeElement($idRefroidisseur)) {
+        if ($this->Refroidisseur_Id->removeElement($refroidisseurId)) {
             // set the owning side to null (unless already changed)
-            if ($idRefroidisseur->getIdRefroidisseur() === $this) {
-                $idRefroidisseur->setIdRefroidisseur(null);
+            if ($refroidisseurId->getRefroidisseur() === $this) {
+                $refroidisseurId->setRefroidisseur(null);
             }
         }
 

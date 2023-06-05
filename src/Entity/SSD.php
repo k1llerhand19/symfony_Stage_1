@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\SSDRepository;
+use App\Repository\SsdRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: SSDRepository::class)]
-class SSD
+#[ORM\Entity(repositoryClass: SsdRepository::class)]
+class Ssd
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,27 +21,27 @@ class SSD
     #[ORM\Column(length: 25)]
     private ?string $Modele = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 25)]
     private ?string $Marque = null;
 
     #[ORM\Column]
     private ?int $Capacite = null;
 
     #[ORM\Column]
-    private ?int $Vitesse_Lecture = null;
+    private ?int $Vitesse_lecture = null;
 
     #[ORM\Column]
-    private ?int $Vitesse_Ecriture = null;
+    private ?int $Vitesse_ecriture = null;
 
     #[ORM\Column]
     private ?int $Stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Id_SSD', targetEntity: Ordinateur::class)]
-    private Collection $Id_SSD;
+    #[ORM\OneToMany(mappedBy: 'Ssd', targetEntity: Ordinateur::class)]
+    private Collection $Ssd_Id;
 
     public function __construct()
     {
-        $this->Id_SSD = new ArrayCollection();
+        $this->Ssd_Id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -99,24 +99,24 @@ class SSD
 
     public function getVitesseLecture(): ?int
     {
-        return $this->Vitesse_Lecture;
+        return $this->Vitesse_lecture;
     }
 
-    public function setVitesseLecture(int $Vitesse_Lecture): self
+    public function setVitesseLecture(int $Vitesse_lecture): self
     {
-        $this->Vitesse_Lecture = $Vitesse_Lecture;
+        $this->Vitesse_lecture = $Vitesse_lecture;
 
         return $this;
     }
 
     public function getVitesseEcriture(): ?int
     {
-        return $this->Vitesse_Ecriture;
+        return $this->Vitesse_ecriture;
     }
 
-    public function setVitesseEcriture(int $Vitesse_Ecriture): self
+    public function setVitesseEcriture(int $Vitesse_ecriture): self
     {
-        $this->Vitesse_Ecriture = $Vitesse_Ecriture;
+        $this->Vitesse_ecriture = $Vitesse_ecriture;
 
         return $this;
     }
@@ -136,30 +136,31 @@ class SSD
     /**
      * @return Collection<int, Ordinateur>
      */
-    public function getIdSSD(): Collection
+    public function getSsdId(): Collection
     {
-        return $this->Id_SSD;
+        return $this->Ssd_Id;
     }
 
-    public function addIdSSD(Ordinateur $idSSD): self
+    public function addSsdId(Ordinateur $ssdId): self
     {
-        if (!$this->Id_SSD->contains($idSSD)) {
-            $this->Id_SSD->add($idSSD);
-            $idSSD->setIdSSD($this);
+        if (!$this->Ssd_Id->contains($ssdId)) {
+            $this->Ssd_Id->add($ssdId);
+            $ssdId->setSsd($this);
         }
 
         return $this;
     }
 
-    public function removeIdSSD(Ordinateur $idSSD): self
+    public function removeSsdId(Ordinateur $ssdId): self
     {
-        if ($this->Id_SSD->removeElement($idSSD)) {
+        if ($this->Ssd_Id->removeElement($ssdId)) {
             // set the owning side to null (unless already changed)
-            if ($idSSD->getIdSSD() === $this) {
-                $idSSD->setIdSSD(null);
+            if ($ssdId->getSsd() === $this) {
+                $ssdId->setSsd(null);
             }
         }
 
         return $this;
     }
+
 }
