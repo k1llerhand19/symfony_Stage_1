@@ -24,7 +24,7 @@ class HDDController extends AbstractController
         ]);
     }
 
-    #[Route('hdd/"/{id}"', name: 'app_ModifierHDD')]
+    #[Route('hdd/{id}', name: 'app_ModifierHDD')]
     public function ModifierHDD(): Response
     {
         return $this->render('HDD/ModifierHDD.html.twig', [
