@@ -20,7 +20,7 @@ class OrdinateurFormType extends AbstractType
             ->add('processeur')
             ->add('ram')
             ->add('refroidisseur')
-            ->add('Sssd')
+            ->add('Ssd')
             ->add('alimentation', EntityType::class, [
                 'class' => Alimentation::class,
                 'choice_label' => 'alim',])
