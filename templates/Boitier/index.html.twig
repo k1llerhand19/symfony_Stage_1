@@ -39,7 +39,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
-                        <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button>
+                        <td class="text-nowrap">{#<a href="{{ path('boitier.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
                                                         <span class="badge text-bg-danger"></span>
                                                     </td>
                     </tr>
@@ -50,7 +50,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
-                        <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button></td>
+                        <td class="text-nowrap">{#<a href="{{ path('boitier.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button></td>
                     </tr>
                                 <tr class="align-middle text-center">
                         <td class="text-nowrap"></td>
@@ -59,7 +59,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
-                        <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button></td>
+                        <td class="text-nowrap">{#<a href="{{ path('boitier.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button></td>
                     </tr>
                                     <tr class="align-middle text-center">
                         <td class="text-nowrap"></td>
@@ -68,7 +68,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
-                        <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button>
+                        <td class="text-nowrap">{#<a href="{{ path('boitier.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
 
                                                     </td>
                     </tr>
@@ -79,7 +79,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
-                            <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button>
+                            <td class="text-nowrap">{#<a href="{{ path('boitier.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
                                                         <span class="badge text-bg-danger"></span>
                                                     </td>
                     </tr>
@@ -90,7 +90,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
-                        <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button>
+                        <td class="text-nowrap">{#<a href="{{ path('boitier.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
                                                         
                                                     </td>
                     </tr>
@@ -101,7 +101,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
-                        <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button>
+                        <td class="text-nowrap">{#<a href="{{ path('boitier.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
                                                         <span class="badge text-bg-danger"></span>
                                                     </td>
                     </tr>
@@ -112,7 +112,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></button></td>
-                        <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button>
+                        <td class="text-nowrap">{#<a href="{{ path('boitier.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
                                                         <span class="badge text-bg-danger"></span>
                                                     </td>
                     </tr>
@@ -121,14 +121,6 @@
     </div
 </div>
     
-    <button onclick="redirection_Creer()">Ajoutez</button>
-    
-    <script>
-        function redirection_Creer() {
-            window.location.href = "{{ path('boitier.add')}}"; 
-        }
-        function redirection_Modifier() {
-            window.location.href = "{{ path('boitier.edit')}}";
-        }
-    </script>
+    <a href="{{ path('boitier.add')}}">Ajoutez</a>
+
 {% endblock %}

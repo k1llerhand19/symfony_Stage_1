@@ -47,7 +47,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
-                        <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button>
+                        <td class="text-nowrap">{#<a href="{{ path('cartemere.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
                                                         <span class="badge text-bg-danger"></span>
                                                     </td>
                     </tr>
@@ -62,7 +62,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
-                        <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button></td>
+                        <td class="text-nowrap">{#<a href="{{ path('cartemere.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button></td>
                     </tr>
                                 <tr class="align-middle text-center">
                         <td class="text-nowrap"></td>
@@ -75,7 +75,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
-                        <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button></td>
+                        <td class="text-nowrap">{#<a href="{{ path('cartemere.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button></td>
                     </tr>
                                     <tr class="align-middle text-center">
                         <td class="text-nowrap"></td>
@@ -88,7 +88,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
-                        <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button>
+                        <td class="text-nowrap">{#<a href="{{ path('cartemere.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
 
                                                     </td>
                     </tr>
@@ -103,7 +103,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
-                            <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button>
+                            <td class="text-nowrap">{#<a href="{{ path('cartemere.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
                                                         <span class="badge text-bg-danger"></span>
                                                     </td>
                     </tr>
@@ -118,7 +118,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
-                        <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button>
+                        <td class="text-nowrap">{#<a href="{{ path('cartemere.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
                                                         
                                                     </td>
                     </tr>
@@ -133,7 +133,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
-                        <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button>
+                        <td class="text-nowrap">{#<a href="{{ path('cartemere.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
                                                         <span class="badge text-bg-danger"></span>
                                                     </td>
                     </tr>
@@ -148,7 +148,7 @@
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></td>
                         <td class="text-nowrap"></button></td>
-                        <td class="text-nowrap"><button onclick="redirection_Modifier()">Modifier<button onclick=#>Supprimer</button>
+                        <td class="text-nowrap">{#<a href="{{ path('cartemere.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
                                                         <span class="badge text-bg-danger"></span>
                                                     </td>
                     </tr>
@@ -157,14 +157,6 @@
     </div
 </div>
     
-    <button onclick="redirection_Creer()">Ajoutez</button>
-    
-    <script>
-        function redirection_Creer() {
-            window.location.href = "{{ path('cartemere.add')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
-        }
-        function redirection_Modifier() {
-            window.location.href = "{{ path('cartemere.edit')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
-        }
-    </script>
+    <a href="{{ path('cartemere.add')}}">Ajoutez</a>
+
 {% endblock %}
