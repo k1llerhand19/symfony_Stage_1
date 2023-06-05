@@ -175,14 +175,9 @@
     </div
 </div>
     
-    <button onclick="redirection_Creer()">Ajoutez</button>
+    <a href="{{ path('ordinateur.add')}}">Ajoutez</a>
+    <a href="{{ path('ordinateur.edit{{id}}')}}">Ajoutez</a>
 
-    <script>
-        function redirection_Creer() {
-            window.location.href = "{{ path('ordinateur.add')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
-        }
-        function redirection_Modifier() {
-            window.location.href = "{{ path('ordinateur.edit')}}"; // Remplacez "https://www.example.com" par l'URL de la page vers laquelle vous souhaitez rediriger
-        }
+
     </script>
 {% endblock %}

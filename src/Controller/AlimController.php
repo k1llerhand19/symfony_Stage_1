@@ -25,10 +25,10 @@ class AlimController extends AbstractController
     }
 
     #[Route('alim/{id}', name: 'alim.edit')]
-    public function ModifierAlim(): Response
+    public function ModifierAlim($id): Response
     {
         return $this->render('alim/ModifierAlim.html.twig', [
-            'controller_name' => 'AlimController',
+            'controller_name' => 'AlimController', ['id' => $id]
         ]);
     }
 }
