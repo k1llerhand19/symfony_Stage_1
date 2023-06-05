@@ -12,42 +12,42 @@ class OrdinateurFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Alim')
-            ->add('Boitier')
-            ->add('Cm')
-            ->add('Gpu')
-            ->add('Hdd')
-            ->add('Processeur')
-            ->add('Ram')
-            ->add('Refroidisseur')
-            ->add('Ssd')
-            ->add('Alimentation', EntityType::class, [
+            ->add('alim')
+            ->add('boitier')
+            ->add('cm')
+            ->add('gpu')
+            ->add('hdd')
+            ->add('processeur')
+            ->add('ram')
+            ->add('refroidisseur')
+            ->add('Sssd')
+            ->add('alimentation', EntityType::class, [
                 'class' => Alimentation::class,
-                'choice_label' => 'Alim',])
-            ->add('Boitier', EntityType::class, [
+                'choice_label' => 'alim',])
+            ->add('boitier', EntityType::class, [
                 'class' => Boitier::class,
-                'choice_label' => 'Boitier',])
-            ->add('Cm', EntityType::class, [
+                'choice_label' => 'boitier',])
+            ->add('cm', EntityType::class, [
                 'class' => Cm::class,
-                'choice_label' => 'Cm',])
-            ->add('Gpu', EntityType::class, [
+                'choice_label' => 'cm',])
+            ->add('gpu', EntityType::class, [
                 'class' => Gpu::class,
-                'choice_label' => 'Gpu',])
-            ->add('Hdd', EntityType::class, [
+                'choice_label' => 'gpu',])
+            ->add('hdd', EntityType::class, [
                 'class' => Hdd::class,
-                'choice_label' => 'Hdd',])
-            ->add('Processeur', EntityType::class, [
+                'choice_label' => 'hdd',])
+            ->add('processeur', EntityType::class, [
                 'class' => Processeur::class,
-                'choice_label' => 'Processeur',])
-            ->add('Ram', EntityType::class, [
+                'choice_label' => 'processeur',])
+            ->add('ram', EntityType::class, [
                 'class' => Ram::class,
-                'choice_label' => 'Ram',])
-            ->add('Refroidisseur', EntityType::class, [
+                'choice_label' => 'ram',])
+            ->add('refroidisseur', EntityType::class, [
                 'class' => Refroidisseur::class,
-                'choice_label' => 'Refroidisseur',])
-            ->add('Ssd', EntityType::class, [
+                'choice_label' => 'refroidisseur',])
+            ->add('ssd', EntityType::class, [
                 'class' => Ssd::class,
-                'choice_label' => 'Ssd',])
+                'choice_label' => 'ssd',])
                 
         ;
     }

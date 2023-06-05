@@ -13,41 +13,41 @@ class Ordinateur
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Alim_Id')]
+    #[ORM\ManyToOne(inversedBy: 'alim_Id')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Alimentation $Alim = null;
+    private ?Alimentation $alim = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Boitier_Id')]
+    #[ORM\ManyToOne(inversedBy: 'boitier_Id')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Boitier $Boitier = null;
+    private ?Boitier $boitier = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Cm_Id')]
+    #[ORM\ManyToOne(inversedBy: 'cm_Id')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Cm $Cm = null;
+    private ?Cm $cm = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Gpu_Id')]
+    #[ORM\ManyToOne(inversedBy: 'gpu_Id')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Gpu $Gpu = null;
+    private ?Gpu $gpu = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Hdd_Id')]
+    #[ORM\ManyToOne(inversedBy: 'hdd_Id')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Hdd $Hdd = null;
+    private ?Hdd $hdd = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Processeur_Id')]
+    #[ORM\ManyToOne(inversedBy: 'processeur_Id')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Processeur $Processeur = null;
+    private ?Processeur $processeur = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Ram_Id')]
+    #[ORM\ManyToOne(inversedBy: 'ram_Id')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Ram $Ram = null;
+    private ?Ram $ram = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Refroidisseur_Id')]
+    #[ORM\ManyToOne(inversedBy: 'refroidisseur_Id')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Refroidisseur $Refroidisseur = null;
+    private ?Refroidisseur $refroidisseur = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Ssd_Id')]
+    #[ORM\ManyToOne(inversedBy: 'ssd_Id')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Ssd $Ssd = null;
+    private ?Ssd $ssd = null;
 
     public function getId(): ?int
     {
@@ -56,108 +56,108 @@ class Ordinateur
 
     public function getAlim(): ?Alimentation
     {
-        return $this->Alim;
+        return $this->alim;
     }
 
-    public function setAlim(?Alimentation $Alim): self
+    public function setAlim(?Alimentation $alim): self
     {
-        $this->Alim = $Alim;
+        $this->alim = $alim;
 
         return $this;
     }
 
     public function getBoitier(): ?Boitier
     {
-        return $this->Boitier;
+        return $this->boitier;
     }
 
-    public function setBoitier(?Boitier $Boitier): self
+    public function setBoitier(?Boitier $boitier): self
     {
-        $this->Boitier = $Boitier;
+        $this->boitier = $boitier;
 
         return $this;
     }
 
     public function getCm(): ?Cm
     {
-        return $this->Cm;
+        return $this->cm;
     }
 
-    public function setCm(?Cm $Cm): self
+    public function setCm(?Cm $cm): self
     {
-        $this->Cm = $Cm;
+        $this->cm = $cm;
 
         return $this;
     }
 
     public function getGpu(): ?Gpu
     {
-        return $this->Gpu;
+        return $this->gpu;
     }
 
-    public function setGpu(?Gpu $Gpu): self
+    public function setGpu(?Gpu $gpu): self
     {
-        $this->Gpu = $Gpu;
+        $this->gpu = $gpu;
 
         return $this;
     }
 
     public function getHdd(): ?Hdd
     {
-        return $this->Hdd;
+        return $this->hdd;
     }
 
-    public function setHdd(?Hdd $Hdd): self
+    public function setHdd(?Hdd $hdd): self
     {
-        $this->Hdd = $Hdd;
+        $this->hdd = $hdd;
 
         return $this;
     }
 
     public function getProcesseur(): ?Processeur
     {
-        return $this->Processeur;
+        return $this->processeur;
     }
 
-    public function setProcesseur(?Processeur $Processeur): self
+    public function setProcesseur(?Processeur $processeur): self
     {
-        $this->Processeur = $Processeur;
+        $this->processeur = $processeur;
 
         return $this;
     }
 
     public function getRam(): ?Ram
     {
-        return $this->Ram;
+        return $this->ram;
     }
 
-    public function setRam(?Ram $Ram): self
+    public function setRam(?Ram $ram): self
     {
-        $this->Ram = $Ram;
+        $this->ram = $ram;
 
         return $this;
     }
 
     public function getRefroidisseur(): ?Refroidisseur
     {
-        return $this->Refroidisseur;
+        return $this->refroidisseur;
     }
 
-    public function setRefroidisseur(?Refroidisseur $Refroidisseur): self
+    public function setRefroidisseur(?Refroidisseur $refroidisseur): self
     {
-        $this->Refroidisseur = $Refroidisseur;
+        $this->refroidisseur = $refroidisseur;
 
         return $this;
     }
 
     public function getSsd(): ?Ssd
     {
-        return $this->Ssd;
+        return $this->ssd;
     }
 
-    public function setSsd(?Ssd $Ssd): self
+    public function setSsd(?Ssd $ssd): self
     {
-        $this->Ssd = $Ssd;
+        $this->ssd = $ssd;
 
         return $this;
     }
