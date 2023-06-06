@@ -133,4 +133,19 @@ class Alimentation
         return $this;
     }
 
+    public function index(): Response
+{
+    $alimentation = new Alimentation();
+    $form_alim = $this->createForm(AlimFormType::class, $alimentation);
+
+    $form_alim->handleRequest($request);
+    if ($form_alim->isSubmitted() && $form_alim->isValid()){
+        dump($alimentation);die;
+    }
+
+    return $this->render('default/index.html.twig', [
+        'form_alim' => $form_alim->createView()
+    ]);
+}
+
 }
