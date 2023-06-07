@@ -6,6 +6,8 @@ use App\Entity\Boitier;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+
 
 class BoitierFormType extends AbstractType
 {
@@ -17,7 +19,7 @@ class BoitierFormType extends AbstractType
             ->add('Marque')
             ->add('Format_boitier')
             ->add('Format_alim')
-            ->add('Stock')
+            ->add('Stock', IntegerType::class)
             /*->add('Ordinateur', EntityType::class, [
                 'class' => Boitier::class,
                 'choice_label' => 'Boitier',])*/

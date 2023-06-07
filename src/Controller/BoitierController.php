@@ -2,9 +2,17 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+use App\Entity\Boitier;
+use App\Form\BoitierFormType;
+use App\Repository\BoitierRepository;
+
 
 class BoitierController extends AbstractController
 {
@@ -17,10 +25,23 @@ class BoitierController extends AbstractController
     }
 
     #[Route('boitier/ajouter', name: 'boitier.add')]
-    public function AjouterBoitier(): Response
-    {
+    public function AjouterBoitier(Request $request,  EntityManagerInterface $manager): Response
+    {   $boitier = new Boitier();
+        $form_boitier = $this->createForm(BoitierFormType::class);
+        $form_boitier -> handleRequest($request);
+    
+        if( $form_boitier->isSubmitted() && $form_boitier->isValid()){
+            
+            $manager->persist($boitier);
+            $manager->flush();
+
+            return $this->redirectToRoute('boitier.show',['id'=> $boitier->getId()
+            ]);
+        }
+
         return $this->render('boitier/AjouterBoitier.html.twig', [
-            'controller_name' => 'AlimController',
+            'controller_name' => 'BoitierController',
+            'form_boitier' => $form_boitier->createView()
         ]);
     }
 
