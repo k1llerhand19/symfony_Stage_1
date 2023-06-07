@@ -59,5 +59,42 @@ class AlimFormType extends AbstractType
                     <input type="number" id="stock" name="stock">	
                         <br>
                         <br>
-                    <button type="submit">Enregistrer</button>
+
+
+                    <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                    </button>
+
+                    
                 </form>*/
+
+                /*{{form_start(form_alim)}}
+
+                 <div class="form-group">
+                    {{form_label(form_alim.nom)}}
+                    {{form_widget(form_alim.nom)}}
+                    
+                 </div> 
+
+                 <div class="form-group">
+                    {{form_label(form_alim.modele)}}
+                    {{form_widget(form_alim.modele)}}
+                 </div> 
+
+                 <div class="form-group">
+                    {{form_label(form_alim.marque)}}
+                    {{form_widget(form_alim.marque)}}
+                 </div>   
+
+                 <div class="form-group">
+                    {{form_label(form_alim.puissance)}}
+                    {{form_widget(form_alim.puissance)}}
+                 </div>
+
+                 <div class="form-group">
+                    {{form_label(form_alim.stock)}}
+                    {{form_widget(form_alim.stock)}}
+                 </div> 
+
+                {{form_end(form_alim)}}
+            */

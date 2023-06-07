@@ -2,13 +2,20 @@
 
 namespace App\Controller;
 
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+
 use App\Entity\Alimentation;
+use App\Repository\AlimentationRepository;
+
+
 use App\Form\AlimFormType;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
 
 class AlimController extends AbstractController
 {
@@ -21,26 +28,26 @@ class AlimController extends AbstractController
     }
 
     #[Route('alim/ajouter', name: 'alim.add')]
-    public function AjouterAlimRequest(Request $request, ManagerRegistry $entityManager): Response
-    {
-        /*$entityManager = $request->getRequestUri();
-        $alim = new alimentation();
-        $form_alim = $this->createForm(AlimFormType::class, $alim);*/
+    public function AjouterAlimRequest(Request $request, ObjectManager $manager): Response
+    {   $alim = new alimentation();
+        $form_alim = $this->createFormBuilder($alim)
+                            ->add('nom', TextType::class)
+                            ->add('modele', TextType::class)
+                            ->add('marque', TextType::class)
+                            ->add('puissance', IntegerType::class)
+                            ->add('stock', IntegerType::class)
+                            ->getForm();
+        
+        $form_alim -> handleRequest($request);
 
-        dump($request);
-        if ($request->$request->count() > 0) {
-            $alim = new alimentation();
-            $alim -> setNom($request->$request->get('nom'))
-                -> setModele($request->$request->get('modele'))
-                -> setMarque($request->$request->get('marque'))
-                -> setPuissance($request->$request->get('puissance'))
-                -> setStock($request->$request->get('stock'))
-                -> setCreatedAt(new \DateTime());
-            $entityManager ->persist($alim);
-            $entityManager ->flush();
+        if( $form_alim->isSubmitted() && $form_alim->isValid()){
+            $manager->persist($alim);
+            $manager->flush();
 
-            return $this->redirectToRoute('alim.show');
+            return $this->redirectToRoute('alim.show',['id'=> $alim->getId()
+            ]);
         }
+
         return $this->render('alim/AjouterAlim.html.twig', [
             'controller_name' => 'AlimController',
             'form_alim' => $form_alim->createView()
