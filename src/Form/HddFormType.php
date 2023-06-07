@@ -18,9 +18,9 @@ class HddFormType extends AbstractType
             ->add('Capacite')
             ->add('Vitesse_rotation')
             ->add('Stock')
-            ->add('Ordinateur', EntityType::class, [
+            /*->add('Ordinateur', EntityType::class, [
                 'class' => Hdd::class,
-                'choice_label' => 'Hdd',])
+                'choice_label' => 'Hdd',])*/
         ;
     }
 

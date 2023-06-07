@@ -20,9 +20,9 @@ class ProcesseurFormType extends AbstractType
             ->add('Nbr_threads')
             ->add('Nbr_core')
             ->add('Stock')
-            ->add('Ordinateur', EntityType::class, [
+            /*->add('Ordinateur', EntityType::class, [
                 'class' => Processeur::class,
-                'choice_label' => 'Processeur',])
+                'choice_label' => 'Processeur',])*/
         ;
     }
 

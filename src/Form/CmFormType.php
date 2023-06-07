@@ -22,9 +22,9 @@ class CmFormType extends AbstractType
             ->add('Capa_maxi_ram_par_slot')
             ->add('Capa_maxi_ram')
             ->add('Stock')
-            ->add('Ordinateur', EntityType::class, [
+            /*->add('Ordinateur', EntityType::class, [
                 'class' => Cm::class,
-                'choice_label' => 'Cm',])
+                'choice_label' => 'Cm',])*/
         ;
     }
 

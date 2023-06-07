@@ -19,9 +19,9 @@ class RamFormType extends AbstractType
             ->add('Frequence_memoire')
             ->add('Capacite_par_barrette')
             ->add('Stock')
-            ->add('Ordinateur', EntityType::class, [
+           /*->add('Ordinateur', EntityType::class, [
                 'class' => Ram::class,
-                'choice_label' => 'Ram',])
+                'choice_label' => 'Ram',])*/
         ;
     }
 

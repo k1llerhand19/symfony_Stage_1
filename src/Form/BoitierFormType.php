@@ -18,9 +18,9 @@ class BoitierFormType extends AbstractType
             ->add('Format_boitier')
             ->add('Format_alim')
             ->add('Stock')
-            ->add('Ordinateur', EntityType::class, [
+            /*->add('Ordinateur', EntityType::class, [
                 'class' => Boitier::class,
-                'choice_label' => 'Boitier',])
+                'choice_label' => 'Boitier',])*/
         ;
     }
 
