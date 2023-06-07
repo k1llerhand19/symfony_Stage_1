@@ -24,44 +24,21 @@
         <div class="row">
             <div class="col-4" id="colonne-1"></div>
             <div class="col-4" id="colonne-1">
-                <FORM action=".php" METHOD="GET">
-                    <label for="nom">nom  :</label>
-                        <br>
-                    <input type="String" id="nom" name="nom1">
-                        <br>
-                        <br>
-                    <label for="Modele">Modele :</label>
-                        <br>
-                    <input type="String" id="modele" name="modele1">
-                        <br>
-                        <br>
-                    <label for="Marque">Marque :</label>
-                        <br>
-                    <input type="String" id="Marque" name="Marque1">
-                        <br>
-                        <br>	   
-                    <label for="Format_Boitier">Chipset graphique :</label>
-                        <br>
-                    <input type="String" id="Chipset_Graphique" name="Chipset_Graphique1">
-                        <br>
-                        <br>
-                    <label for="Format_Alim">Taille de mémoire	 :</label>
-                        <br>
-                    <input type="String" id="Taille_Memoire" name="Taille_Memoire1">
-                        <br>
-                        <br>
-                    <label for="Format_Alim">Type de mémoire :</label>
-                        <br>
-                    <input type="String" id="Type_Memoire" name="Type_Memoire1">
-                        <br>
-                        <br>	   
-                    <label for="Stock">Stock :</label>
-                        <br>
-                    <input type="number" id="stock" name="stock1">	
-                        <br>
-                        <br>
-                    <input type="submit" value="Créer" name="creer">
-                </form>
+                {{form_start(form_gpu)}}
+
+                {{form_row(form_gpu.Nom, {'attr' : {'placeholder' : "Désignation de la carte graphique"}})}}
+                {{form_row(form_gpu.Modele, {'attr' : {'placeholder' : "Modele de la carte graphique"}})}}
+                {{form_row(form_gpu.Marque, {'attr' : {'placeholder' : "Marque de la carte graphique"}})}}
+                {{form_row(form_gpu.Chipset_graphique, {'attr' : {'placeholder' : "Chipset graphique"}})}}
+                {{form_row(form_gpu.Taille_memoire, {'attr' : {'placeholder' : "Taille de la mémoire"}})}}
+                {{form_row(form_gpu.Type_memoire, {'attr' : {'placeholder' : "Type de mémoire"}})}}
+                {{form_row(form_gpu.Stock, {'attr' : {'placeholder' : "Stock de la carte graphiquer"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(form_gpu)}}
             </div>
         </div>
       </div> 

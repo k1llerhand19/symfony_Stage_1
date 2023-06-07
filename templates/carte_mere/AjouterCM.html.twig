@@ -24,50 +24,25 @@
         <div class="row">
             <div class="col-4" id="colonne-1"></div>
             <div class="col-4" id="colonne-1">
-                <FORM action="" METHOD="GET">
-                    <label for="nom">nom  :</label>
-                        <br>
-                    <input type="String" id="nom" name="nom1">
-                        <br>
-                    <label for="Modele">Modele :</label>
-                        <br>
-                    <input type="String" id="modele" name="modele1">
-                        <br>
-                    <label for="Marque">Marque :</label>
-                        <br>
-                    <input type="String" id="Marque" name="Marque1">
-                        <br>	   
-                    <label for="Support_CPU">Support Processeur :</label>
-                        <br>
-                    <input type="String" id="Support_CPU" name="Support_CPU1">
-                        <br>
-                    <label for="Nbr_CPU_Supporte">Nombre de CPU supporté :</label>
-                        <br>
-                    <input type="number" id="Nbr_CPU_Supporte" name="Nbr_CPU_Supporte1">
-                        <br>
-                         <label for="Chipset">Chipset :</label>
-                        <br>
-                    <input type="String" id="Chipset" name="Chipset1">
-                        <br>	   
-                    <label for="Type_Memoire">Type de mémoire :</label>
-                        <br>
-                    <input type="String" id="Type_Memoire" name="Type_Memoire1">
-                        <br>
-                    <label for="Capa_Max_Ram/Slots">Capacité Maximale de RAM par slots :</label>
-                        <br>
-                    <input type="number" id="Capa_Max_Ram/Slots" name="Capa_Max_Ram/Slots1">
-                        <br>
-                    <label for="Capa_Max_Ram">Capacité Maximale de RAM :</label>
-                        <br>
-                    <input type="number" id="Capa_Max_Ram" name="Capa_Max_Ram1">
-                        <br>	   
-                    <label for="Stock">Stock :</label>
-                        <br>
-                    <input type="number" id="stock" name="stock1">	
-                        <br>
-                        <br>
-                    <input type="submit" value="Créer" name="creer">
-                </form>
+
+                {{form_start(form_Cm)}}
+
+                {{form_row(form_Cm.Nom, {'attr' : {'placeholder' : "Désignation de l'boitier"}})}}
+                {{form_row(form_Cm.Modele, {'attr' : {'placeholder' : "Modele de l'boitier"}})}}
+                {{form_row(form_Cm.Marque, {'attr' : {'placeholder' : "Marque de l'boitier"}})}}
+                {{form_row(form_Cm.Support_processeur, {'attr' : {'placeholder' : "Support du processeur"}})}}
+                {{form_row(form_Cm.Nbr_cpu_supporte, {'attr' : {'placeholder' : "Nombre de CPU supporté"}})}}
+                {{form_row(form_Cm.Chipset, {'attr' : {'placeholder' : "Chipset"}})}}
+                {{form_row(form_Cm.Type_memoire, {'attr' : {'placeholder' : "Type de mémoire"}})}}
+                {{form_row(form_Cm.Capa_maxi_ram_par_slot, {'attr' : {'placeholder' : "Capacité maximal de RAM par slot"}})}}
+                {{form_row(form_Cm.Capa_maxi_ram, {'attr' : {'placeholder' : "Capacité maximal de RAM"}})}}
+                {{form_row(form_Cm.Stock, {'attr' : {'placeholder' : "Stock du boitier"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(form_Cm)}}
             </div>
         </div>
       </div> 

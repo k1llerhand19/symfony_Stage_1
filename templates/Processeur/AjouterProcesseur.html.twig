@@ -24,51 +24,22 @@
         <div class="row">
             <div class="col-4" id="colonne-1"></div>
             <div class="col-4" id="colonne-1">
-                <FORM action="" METHOD="GET">
-                    <label for="nom">nom  :</label>
-                        <br>
-                    <input type="String" id="nom" name="nom1">
-                        <br>
-                        <br>
-                    <label for="Modele">Modele :</label>
-                        <br>
-                    <input type="String" id="modele" name="modele1">
-                        <br>
-                        <br>
-                    <label for="Marque">Marque :</label>
-                        <br>
-                    <input type="String" id="Marque" name="Marque1">
-                        <br>
-                        <br>	   
-                    <label for="Format_Boitier">Support de processeur :</label>
-                        <br>
-                    <input type="String" id="Format_Boitier" name="Format_Boitier1">
-                        <br>
-                        <br>
-                    <label for="Freq_CPU">Fréquence du CPU :</label>
-                        <br>
-                    <input type="number" id="Freq_CPU" name="Freq_CPU1">	
-                        <br>
-                        <br>
-                    <label for="Nbr_Core">Nombre de Core :</label>
-                        <br>
-                    <input type="number" id="Nbr_Core" name="Nbr_Core1">	
-                        <br>
-                        <br>
-                    <label for="Nbr_threads">Nombre de threads :</label>
-                        <br>
-                    <input type="number" id="Nbr_threads" name="Nbr_threads1">	
-                        <br>
-                        <br>		   
-                    <label for="Stock">Stock :</label>
-                        <br>
-                    <input type="number" id="stock" name="stock1">	
-                        <br>
-                        <br>
-                    <input type="submit" value="Créer" name="creer">
-                    <br>
-                    <br>
-                </form>
+                {{form_start(form_processeur)}}
+
+                {{form_row(form_processeur.Nom, {'attr' : {'placeholder' : "Désignation du processeur"}})}}
+                {{form_row(form_processeur.Modele, {'attr' : {'placeholder' : "Modele du processeur"}})}}
+                {{form_row(form_processeur.Marque, {'attr' : {'placeholder' : "Marque du processeur"}})}}
+                {{form_row(form_processeur.Support_processeur, {'attr' : {'placeholder' : "Support du processeur"}})}}
+                {{form_row(form_processeur.Frequence_cpu, {'attr' : {'placeholder' : "Frequence du CPU"}})}}
+                {{form_row(form_processeur.Nbr_threads, {'attr' : {'placeholder' : "Nombre de threads"}})}}
+                 {{form_row(form_processeur.Nbr_core, {'attr' : {'placeholder' : "Nombre de core"}})}}                
+                {{form_row(form_processeur.Stock, {'attr' : {'placeholder' : "Stock du processeur"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(form_processeur)}}
             </div>
         </div>
     </div> 

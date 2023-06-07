@@ -7,7 +7,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\Boitier;
@@ -29,7 +28,6 @@ class BoitierController extends AbstractController
     public function AjouterBoitier(Request $request,  EntityManagerInterface $manager): Response
     {   $boitier = new Boitier();
         $form_boitier = $this->createForm(BoitierFormType::class,$boitier);
-        dump($request);
         $form_boitier -> handleRequest($request);
     
         if( $form_boitier->isSubmitted() && $form_boitier->isValid()){

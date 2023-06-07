@@ -24,39 +24,20 @@
         <div class="row">
             <div class="col-4" id="colonne-1"></div>
             <div class="col-4" id="colonne-1">
-                <FORM action=".php" METHOD="GET">
-                    <label for="nom">nom  :</label>
-                        <br>
-                    <input type="String" id="nom" name="nom1">
-                        <br>
-                        <br>
-                    <label for="Modele">Modele :</label>
-                        <br>
-                    <input type="String" id="modele" name="modele1">
-                        <br>
-                        <br>
-                    <label for="Marque">Marque :</label>
-                        <br>
-                    <input type="String" id="Marque" name="Marque1">
-                        <br>
-                        <br>	   
-                    <label for="Capacite_Stockage">Capacité :</label>
-                        <br>
-                    <input type="number" id="Capa_HDD" name="Capa_HDD1">
-                        <br>
-                        <br>
-                    <label for="Vitesse_Rota">Vitesse de rotation :</label>
-                        <br>
-                    <input type="number" id="Vitesse_Rota" name="Vitesse_Rota1">
-                        <br>
-                        <br>	   
-                    <label for="Stock">Stock :</label>
-                        <br>
-                    <input type="number" id="stock" name="stock1">	
-                        <br>
-                        <br>
-                    <input type="submit" value="Créer" name="creer">
-                </form>
+                {{form_start(form_hdd)}}
+
+                {{form_row(form_hdd.Nom, {'attr' : {'placeholder' : "Désignation du disque dur"}})}}
+                {{form_row(form_hdd.Modele, {'attr' : {'placeholder' : "Modele du disque dur"}})}}
+                {{form_row(form_hdd.Marque, {'attr' : {'placeholder' : "Marque du disque dur"}})}}
+                {{form_row(form_hdd.Capacite, {'attr' : {'placeholder' : "Capacite"}})}}
+                {{form_row(form_hdd.Vitesse_rotation, {'attr' : {'placeholder' : "Vitesse de rotation"}})}}
+                {{form_row(form_hdd.Stock, {'attr' : {'placeholder' : "Stock du disque dur"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(form_hdd)}}
             </div>
         </div>
       </div> 

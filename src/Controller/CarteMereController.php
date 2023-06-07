@@ -2,9 +2,16 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+use App\Entity\Cm;
+use App\Form\CmFormType;
+use App\Repository\CarteMereRepository;
 
 class CarteMereController extends AbstractController
 {
@@ -17,10 +24,24 @@ class CarteMereController extends AbstractController
     }
 
     #[Route('cartemere/ajouter', name: 'cartemere.add')]
-    public function AjouterBoitier(): Response
+    public function AjouterCm(Request $request,  EntityManagerInterface $manager): Response
     {
+        $Cm = new Cm();
+        $form_Cm = $this->createForm(CmFormType::class,$Cm);
+        $form_Cm -> handleRequest($request);
+    
+        if( $form_Cm->isSubmitted() && $form_Cm->isValid()){
+            
+            $manager->persist($Cm);
+            $manager->flush();
+
+            return $this->redirectToRoute('cartemere.show',['id'=> $Cm->getId()
+            ]);
+        }
+
         return $this->render('carte_mere/AjouterCM.html.twig', [
-            'controller_name' => 'AlimController',
+            'controller_name' => 'CarteMereController',
+            'form_Cm' => $form_Cm->createView()
         ]);
     }
 
