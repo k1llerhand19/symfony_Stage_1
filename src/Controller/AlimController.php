@@ -6,8 +6,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+
 
 use App\Entity\Alimentation;
 use App\Repository\AlimentationRepository;
@@ -28,7 +30,7 @@ class AlimController extends AbstractController
     }
 
     #[Route('alim/ajouter', name: 'alim.add')]
-    public function AjouterAlimRequest(Request $request, ObjectManager $manager): Response
+    public function AjouterAlimRequest(Request $request,  EntityManagerInterface $manager): Response
     {   $alim = new alimentation();
         $form_alim = $this->createFormBuilder($alim)
                             ->add('nom', TextType::class)
@@ -41,6 +43,7 @@ class AlimController extends AbstractController
         $form_alim -> handleRequest($request);
 
         if( $form_alim->isSubmitted() && $form_alim->isValid()){
+            
             $manager->persist($alim);
             $manager->flush();
 
