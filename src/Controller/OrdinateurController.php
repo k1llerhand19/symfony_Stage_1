@@ -31,14 +31,16 @@ class OrdinateurController extends AbstractController
     public function AjouterOrdinateur(Request $request,  EntityManagerInterface $manager): Response
     {
         $ordinateur = new Ordinateur();
-        $form_ordinateur = $this->createForm(OrdinateurFormType::class, $ordinateur);
+        $form_ordinateur = $this->createForm(OrdinateurFormType::class,$ordinateur);
         $form_ordinateur -> handleRequest($request);
-
+    
         if( $form_ordinateur->isSubmitted() && $form_ordinateur->isValid()){
+            
             $manager->persist($ordinateur);
             $manager->flush();
 
-            return $this->redirectToRoute('ordinateur.show',['id'=>$ordinateur->getId()]);
+            return $this->redirectToRoute('ordinateur.show',['id'=> $ordinateur->getId()
+            ]);
         }
 
         return $this->render('ordinateur/AjouterOrdinateur.html.twig', [
