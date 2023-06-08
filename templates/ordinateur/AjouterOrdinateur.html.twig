@@ -24,21 +24,27 @@
         <div class="row">
             <div class="col-4" id="colonne-1"></div>
             <div class="col-4" id="colonne-1">
-               {{form_start(form_Refroidisseur)}}
+               {{form_start(form_ordinateur)}}
 
-                {{form_row(form_ordinateur.Nom, {'attr' : {'placeholder' : "Désignation du ventiRad / AIO"}})}}
-                {{form_row(form_ordinateur.Modele, {'attr' : {'placeholder' : "Modele du ventiRad / AIO"}})}}
-                {{form_row(form_ordinateur.Marque, {'attr' : {'placeholder' : "Marque du ventiRad / AIO"}})}}
-                {{form_row(form_ordinateur.Support_processeur, {'attr' : {'placeholder' : " Support du processeur du ventiRad / AIO"}})}}
-                {{form_row(form_ordinateur.Vitesse_rota_mini, {'attr' : {'placeholder' : "Vitesse de rotation minimum du ventiRad / AIO"}})}}
-                {{form_row(form_ordinateur.Vitesse_rota_maxi, {'attr' : {'placeholder' : "Vitesse de rotation maximum du ventiRad / AIO"}})}}
-                {{form_row(form_ordinateur.Stock, {'attr' : {'placeholder' : "Stock en réserve  du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.nom, {'attr' : {'placeholder' : "Désignation du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.modele, {'attr' : {'placeholder' : "Modele du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.marque, {'attr' : {'placeholder' : "Marque du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.alim, {'attr' : {'placeholder' : "Désignation du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.boitier, {'attr' : {'placeholder' : "Modele du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.cm, {'attr' : {'placeholder' : "Marque du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.gpu, {'attr' : {'placeholder' : " Support du processeur du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.hdd, {'attr' : {'placeholder' : "Vitesse de rotation minimum du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.processeur, {'attr' : {'placeholder' : "Vitesse de rotation maximum du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.ram, {'attr' : {'placeholder' : "Stock en réserve  du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.refroidisseur, {'attr' : {'placeholder' : "Vitesse de rotation maximum du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.ssd, {'attr' : {'placeholder' : "Stock en réserve  du ventiRad / AIO"}})}}
+
 
                 <button  type="submit" class="btn btn-success">
                         Enregistrer
                 </button>
 
-                {{form_end(form_Refroidisseur)}}
+                {{form_end(form_ordinateur)}}
             </div>
         </div>
     </div> 

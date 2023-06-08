@@ -28,7 +28,7 @@ class VentiradAIOController extends AbstractController
     #[Route('ventiradaio/ajouter', name: 'ventiradaio.add')]
     public function AjouterVentiradAIO(Request $request,  EntityManagerInterface $manager): Response
     {
-        $Refroidisseur = new Refroidisseur;
+        $Refroidisseur = new Refroidisseur();
         $form_Refroidisseur = $this->createForm(RefroidisseurFormType::class, $Refroidisseur);
         $form_Refroidisseur -> handleRequest($request);
 

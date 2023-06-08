@@ -28,7 +28,7 @@ class RAMController extends AbstractController
     #[Route('ram/ajouter', name: 'ram.add')]
     public function CreerRam(Request $request,  EntityManagerInterface $manager): Response
     {
-        $ram = new Ram;
+        $ram = new Ram();
         $form_ram = $this->createForm(RamFormType::class, $ram);
         $form_ram -> handleRequest($request);
 

@@ -2,9 +2,16 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+use App\Entity\Ordinateur;
+use App\Form\OrdinateurFormType;
+use App\Repository\OrdinateurRepository;
 
 class OrdinateurController extends AbstractController
 {
@@ -23,7 +30,7 @@ class OrdinateurController extends AbstractController
     #[Route('ordinateur/ajouter', name: 'ordinateur.add')]
     public function AjouterOrdinateur(Request $request,  EntityManagerInterface $manager): Response
     {
-        $ordinateur = new Ordinateur;
+        $ordinateur = new Ordinateur();
         $form_ordinateur = $this->createForm(OrdinateurFormType::class, $ordinateur);
         $form_ordinateur -> handleRequest($request);
 
@@ -31,8 +38,9 @@ class OrdinateurController extends AbstractController
             $manager->persist($ordinateur);
             $manager->flush();
 
-            return $this->redirectToRoute('ssd.show',['id'=>$ordinateur->getId()]);
+            return $this->redirectToRoute('ordinateur.show',['id'=>$ordinateur->getId()]);
         }
+
         return $this->render('ordinateur/AjouterOrdinateur.html.twig', [
             'controller_name' => 'OrdinateurController',
             'form_ordinateur'=> $form_ordinateur->createView()

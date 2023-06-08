@@ -26,7 +26,7 @@ class SSDController extends AbstractController
     #[Route('ssd/ajouter', name: 'ssd.add')]
     public function AjouterSSD(Request $request,  EntityManagerInterface $manager): Response
     {
-        $ssd = new Ssd;
+        $ssd = new Ssd();
         $form_ssd = $this->createForm(SsdFormType::class, $ssd);
         $form_ssd -> handleRequest($request);
 

@@ -12,43 +12,36 @@ class OrdinateurFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('alim')
-            ->add('boitier')
-            ->add('cm')
-            ->add('gpu')
-            ->add('hdd')
-            ->add('processeur')
-            ->add('ram')
-            ->add('refroidisseur')
-            ->add('Ssd')
-            ->add('alimentation', EntityType::class, [
+            ->add('nom')
+            ->add('modele')
+            ->add('marque')
+            ->add('alim',EntityType::class, [
                 'class' => Alimentation::class,
-                'choice_label' => 'alim',])
+                'choice_label' => 'nom',])
             ->add('boitier', EntityType::class, [
                 'class' => Boitier::class,
-                'choice_label' => 'boitier',])
+                'choice_label' => 'nom',])
             ->add('cm', EntityType::class, [
                 'class' => Cm::class,
-                'choice_label' => 'cm',])
+                'choice_label' => 'nom',])
             ->add('gpu', EntityType::class, [
                 'class' => Gpu::class,
-                'choice_label' => 'gpu',])
+                'choice_label' => 'nom',])
             ->add('hdd', EntityType::class, [
                 'class' => Hdd::class,
-                'choice_label' => 'hdd',])
+                'choice_label' => 'nom',])
             ->add('processeur', EntityType::class, [
                 'class' => Processeur::class,
-                'choice_label' => 'processeur',])
+                'choice_label' => 'nom',])
             ->add('ram', EntityType::class, [
                 'class' => Ram::class,
-                'choice_label' => 'ram',])
+                'choice_label' => 'nom',])
             ->add('refroidisseur', EntityType::class, [
                 'class' => Refroidisseur::class,
-                'choice_label' => 'refroidisseur',])
+                'choice_label' => 'nom',])
             ->add('ssd', EntityType::class, [
                 'class' => Ssd::class,
-                'choice_label' => 'ssd',])
-                
+                'choice_label' => 'nom',])
         ;
     }
 

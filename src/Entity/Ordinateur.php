@@ -49,6 +49,15 @@ class Ordinateur
     #[ORM\JoinColumn(nullable: false)]
     private ?Ssd $ssd = null;
 
+    #[ORM\Column(length: 50)]
+    private ?string $nom = null;
+
+    #[ORM\Column(length: 25)]
+    private ?string $modele = null;
+
+    #[ORM\Column(length: 25)]
+    private ?string $marque = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -158,6 +167,42 @@ class Ordinateur
     public function setSsd(?Ssd $ssd): self
     {
         $this->ssd = $ssd;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getModele(): ?string
+    {
+        return $this->modele;
+    }
+
+    public function setModele(string $modele): self
+    {
+        $this->modele = $modele;
+
+        return $this;
+    }
+
+    public function getMarque(): ?string
+    {
+        return $this->marque;
+    }
+
+    public function setMarque(string $marque): self
+    {
+        $this->marque = $marque;
 
         return $this;
     }
