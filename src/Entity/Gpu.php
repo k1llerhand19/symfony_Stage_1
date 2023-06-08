@@ -15,33 +15,33 @@ class Gpu
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 25)]
-    private ?string $Nom = null;
+    #[ORM\Column(length: 50)]
+    private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Modele = null;
+    private ?string $marque = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Marque = null;
+    private ?string $modele = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Chipset_graphique = null;
+    private ?string $chipset_graphique = null;
 
     #[ORM\Column]
-    private ?int $Taille_memoire = null;
+    private ?int $taille_memoire = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Type_memoire = null;
+    private ?string $type_memoire = null;
 
     #[ORM\Column]
-    private ?int $Stock = null;
+    private ?int $stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Gpu', targetEntity: Ordinateur::class)]
-    private Collection $Gpu_Id;
+    #[ORM\OneToMany(mappedBy: 'gpu', targetEntity: Ordinateur::class)]
+    private Collection $gpu_id;
 
     public function __construct()
     {
-        $this->Gpu_Id = new ArrayCollection();
+        $this->gpu_id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -51,84 +51,84 @@ class Gpu
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
-
-        return $this;
-    }
-
-    public function getModele(): ?string
-    {
-        return $this->Modele;
-    }
-
-    public function setModele(string $Modele): self
-    {
-        $this->Modele = $Modele;
+        $this->nom = $nom;
 
         return $this;
     }
 
     public function getMarque(): ?string
     {
-        return $this->Marque;
+        return $this->marque;
     }
 
-    public function setMarque(string $Marque): self
+    public function setMarque(string $marque): self
     {
-        $this->Marque = $Marque;
+        $this->marque = $marque;
+
+        return $this;
+    }
+
+    public function getModele(): ?string
+    {
+        return $this->modele;
+    }
+
+    public function setModele(string $modele): self
+    {
+        $this->modele = $modele;
 
         return $this;
     }
 
     public function getChipsetGraphique(): ?string
     {
-        return $this->Chipset_graphique;
+        return $this->chipset_graphique;
     }
 
-    public function setChipsetGraphique(string $Chipset_graphique): self
+    public function setChipsetGraphique(string $chipset_graphique): self
     {
-        $this->Chipset_graphique = $Chipset_graphique;
+        $this->chipset_graphique = $chipset_graphique;
 
         return $this;
     }
 
     public function getTailleMemoire(): ?int
     {
-        return $this->Taille_memoire;
+        return $this->taille_memoire;
     }
 
-    public function setTailleMemoire(int $Taille_memoire): self
+    public function setTailleMemoire(int $taille_memoire): self
     {
-        $this->Taille_memoire = $Taille_memoire;
+        $this->taille_memoire = $taille_memoire;
 
         return $this;
     }
 
     public function getTypeMemoire(): ?string
     {
-        return $this->Type_memoire;
+        return $this->type_memoire;
     }
 
-    public function setTypeMemoire(string $Type_memoire): self
+    public function setTypeMemoire(string $type_memoire): self
     {
-        $this->Type_memoire = $Type_memoire;
+        $this->type_memoire = $type_memoire;
 
         return $this;
     }
 
     public function getStock(): ?int
     {
-        return $this->Stock;
+        return $this->stock;
     }
 
-    public function setStock(int $Stock): self
+    public function setStock(int $stock): self
     {
-        $this->Stock = $Stock;
+        $this->stock = $stock;
 
         return $this;
     }
@@ -138,13 +138,13 @@ class Gpu
      */
     public function getGpuId(): Collection
     {
-        return $this->Gpu_Id;
+        return $this->gpu_id;
     }
 
     public function addGpuId(Ordinateur $gpuId): self
     {
-        if (!$this->Gpu_Id->contains($gpuId)) {
-            $this->Gpu_Id->add($gpuId);
+        if (!$this->gpu_id->contains($gpuId)) {
+            $this->gpu_id->add($gpuId);
             $gpuId->setGpu($this);
         }
 
@@ -153,7 +153,7 @@ class Gpu
 
     public function removeGpuId(Ordinateur $gpuId): self
     {
-        if ($this->Gpu_Id->removeElement($gpuId)) {
+        if ($this->gpu_id->removeElement($gpuId)) {
             // set the owning side to null (unless already changed)
             if ($gpuId->getGpu() === $this) {
                 $gpuId->setGpu(null);
@@ -162,5 +162,4 @@ class Gpu
 
         return $this;
     }
-
 }

@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\Refroidisseur;
-use App\Form\RefroidisseurFormType;
+use App\Form\RefroidisseurType;
 use App\Repository\RefroidisseurRepository;
 
 class VentiradAIOController extends AbstractController
@@ -29,7 +29,7 @@ class VentiradAIOController extends AbstractController
     public function AjouterVentiradAIO(Request $request,  EntityManagerInterface $manager): Response
     {
         $Refroidisseur = new Refroidisseur();
-        $form_Refroidisseur = $this->createForm(RefroidisseurFormType::class, $Refroidisseur);
+        $form_Refroidisseur = $this->createForm(RefroidisseurType::class, $Refroidisseur);
         $form_Refroidisseur -> handleRequest($request);
 
         if( $form_Refroidisseur->isSubmitted() && $form_Refroidisseur->isValid()){

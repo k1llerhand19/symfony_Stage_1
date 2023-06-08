@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\Ram;
-use App\Form\RamFormType;
+use App\Form\RamType;
 use App\Repository\RamRepository;
 
 
@@ -29,7 +29,7 @@ class RAMController extends AbstractController
     public function CreerRam(Request $request,  EntityManagerInterface $manager): Response
     {
         $ram = new Ram();
-        $form_ram = $this->createForm(RamFormType::class, $ram);
+        $form_ram = $this->createForm(RamType::class, $ram);
         $form_ram -> handleRequest($request);
 
         if( $form_ram->isSubmitted() && $form_ram->isValid()){

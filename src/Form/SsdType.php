@@ -7,21 +7,18 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SsdFormType extends AbstractType
+class SsdType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Nom')
-            ->add('Modele')
-            ->add('Marque')
-            ->add('Capacite')
-            ->add('Vitesse_lecture')
-            ->add('Vitesse_ecriture')
-            ->add('Stock')
-            /*->add('Ordinateur', EntityType::class, [
-                'class' => Ssd::class,
-                'choice_label' => 'Ssd',])*/
+            ->add('nom')
+            ->add('marque')
+            ->add('modele')
+            ->add('capacite')
+            ->add('vitesse_lecture')
+            ->add('vitesse_ecriture')
+            ->add('stock')
         ;
     }
 

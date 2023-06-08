@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\Ssd;
-use App\Form\SsdFormType;
+use App\Form\SsdType;
 use App\Repository\SsdRepository;
 
 class SSDController extends AbstractController
@@ -27,7 +27,7 @@ class SSDController extends AbstractController
     public function AjouterSSD(Request $request,  EntityManagerInterface $manager): Response
     {
         $ssd = new Ssd();
-        $form_ssd = $this->createForm(SsdFormType::class, $ssd);
+        $form_ssd = $this->createForm(SsdType::class, $ssd);
         $form_ssd -> handleRequest($request);
 
         if( $form_ssd->isSubmitted() && $form_ssd->isValid()){

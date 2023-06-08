@@ -15,27 +15,27 @@ class Alimentation
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 25)]
-    private ?string $Nom = null;
+    #[ORM\Column(length: 50)]
+    private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Modele = null;
+    private ?string $marque = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Marque = null;
+    private ?string $modele = null;
 
     #[ORM\Column]
-    private ?int $Puissance = null;
+    private ?int $puissance = null;
 
     #[ORM\Column]
-    private ?int $Stock = null;
+    private ?int $stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Alim', targetEntity: Ordinateur::class)]
-    private Collection $Alim_Id;
+    #[ORM\OneToMany(mappedBy: 'alim', targetEntity: Ordinateur::class)]
+    private Collection $alim_id;
 
     public function __construct()
     {
-        $this->Alim_Id = new ArrayCollection();
+        $this->alim_id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -45,60 +45,60 @@ class Alimentation
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
-
-        return $this;
-    }
-
-    public function getModele(): ?string
-    {
-        return $this->Modele;
-    }
-
-    public function setModele(string $Modele): self
-    {
-        $this->Modele = $Modele;
+        $this->nom = $nom;
 
         return $this;
     }
 
     public function getMarque(): ?string
     {
-        return $this->Marque;
+        return $this->marque;
     }
 
-    public function setMarque(string $Marque): self
+    public function setMarque(string $marque): self
     {
-        $this->Marque = $Marque;
+        $this->marque = $marque;
+
+        return $this;
+    }
+
+    public function getModele(): ?string
+    {
+        return $this->modele;
+    }
+
+    public function setModele(string $modele): self
+    {
+        $this->modele = $modele;
 
         return $this;
     }
 
     public function getPuissance(): ?int
     {
-        return $this->Puissance;
+        return $this->puissance;
     }
 
-    public function setPuissance(int $Puissance): self
+    public function setPuissance(int $puissance): self
     {
-        $this->Puissance = $Puissance;
+        $this->puissance = $puissance;
 
         return $this;
     }
 
     public function getStock(): ?int
     {
-        return $this->Stock;
+        return $this->stock;
     }
 
-    public function setStock(int $Stock): self
+    public function setStock(int $stock): self
     {
-        $this->Stock = $Stock;
+        $this->stock = $stock;
 
         return $this;
     }
@@ -108,13 +108,13 @@ class Alimentation
      */
     public function getAlimId(): Collection
     {
-        return $this->Alim_Id;
+        return $this->alim_id;
     }
 
     public function addAlimId(Ordinateur $alimId): self
     {
-        if (!$this->Alim_Id->contains($alimId)) {
-            $this->Alim_Id->add($alimId);
+        if (!$this->alim_id->contains($alimId)) {
+            $this->alim_id->add($alimId);
             $alimId->setAlim($this);
         }
 
@@ -123,7 +123,7 @@ class Alimentation
 
     public function removeAlimId(Ordinateur $alimId): self
     {
-        if ($this->Alim_Id->removeElement($alimId)) {
+        if ($this->alim_id->removeElement($alimId)) {
             // set the owning side to null (unless already changed)
             if ($alimId->getAlim() === $this) {
                 $alimId->setAlim(null);
@@ -132,20 +132,4 @@ class Alimentation
 
         return $this;
     }
-
-    public function index(): Response
-{
-    $alimentation = new Alimentation();
-    $form_alim = $this->createForm(AlimFormType::class, $alimentation);
-
-    $form_alim->handleRequest($request);
-    if ($form_alim->isSubmitted() && $form_alim->isValid()){
-        dump($alimentation);die;
-    }
-
-    return $this->render('default/index.html.twig', [
-        'form_alim' => $form_alim->createView()
-    ]);
-}
-
 }

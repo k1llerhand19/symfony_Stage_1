@@ -9,9 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-use App\Entity\Cm;
-use App\Form\CmFormType;
-use App\Repository\CarteMereRepository;
+use App\Entity\Cartemere;
+use App\Form\CartemereType;
+use App\Repository\CartemereRepository;
 
 class CarteMereController extends AbstractController
 {
@@ -26,8 +26,8 @@ class CarteMereController extends AbstractController
     #[Route('cartemere/ajouter', name: 'cartemere.add')]
     public function AjouterCm(Request $request,  EntityManagerInterface $manager): Response
     {
-        $Cm = new Cm();
-        $form_Cm = $this->createForm(CmFormType::class,$Cm);
+        $Cm = new Cartemere();
+        $form_Cm = $this->createForm(CartemereType::class,$Cm);
         $form_Cm -> handleRequest($request);
     
         if( $form_Cm->isSubmitted() && $form_Cm->isValid()){

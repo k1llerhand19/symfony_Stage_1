@@ -7,21 +7,18 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class GpuFormType extends AbstractType
+class GpuType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Nom')
-            ->add('Modele')
-            ->add('Marque')
-            ->add('Chipset_graphique')
-            ->add('Taille_memoire')
-            ->add('Type_memoire')
-            ->add('Stock')
-            /*->add('Ordinateur', EntityType::class, [
-                'class' => Gpu::class,
-                'choice_label' => 'Gpu',])*/
+            ->add('nom')
+            ->add('marque')
+            ->add('modele')
+            ->add('chipset_graphique')
+            ->add('taille_memoire')
+            ->add('type_memoire')
+            ->add('stock')
         ;
     }
 

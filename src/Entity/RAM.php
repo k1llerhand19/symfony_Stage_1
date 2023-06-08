@@ -15,33 +15,33 @@ class Ram
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 25)]
-    private ?string $Nom = null;
+    #[ORM\Column(length: 50)]
+    private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Modele = null;
+    private ?string $marque = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Marque = null;
+    private ?string $modele = null;
 
     #[ORM\Column(length: 15)]
-    private ?string $Type_memoire = null;
+    private ?string $type_memoire = null;
 
     #[ORM\Column]
-    private ?int $Frequence_memoire = null;
+    private ?int $frequence_memoire = null;
 
     #[ORM\Column]
-    private ?int $Capacite_par_barrette = null;
+    private ?int $capacite_par_barrette = null;
 
     #[ORM\Column]
-    private ?int $Stock = null;
+    private ?int $stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Ram', targetEntity: Ordinateur::class)]
-    private Collection $Ram_Id;
+    #[ORM\OneToMany(mappedBy: 'ram', targetEntity: Ordinateur::class)]
+    private Collection $ram_id;
 
     public function __construct()
     {
-        $this->Ram_Id = new ArrayCollection();
+        $this->ram_id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -51,84 +51,84 @@ class Ram
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
-
-        return $this;
-    }
-
-    public function getModele(): ?string
-    {
-        return $this->Modele;
-    }
-
-    public function setModele(string $Modele): self
-    {
-        $this->Modele = $Modele;
+        $this->nom = $nom;
 
         return $this;
     }
 
     public function getMarque(): ?string
     {
-        return $this->Marque;
+        return $this->marque;
     }
 
-    public function setMarque(string $Marque): self
+    public function setMarque(string $marque): self
     {
-        $this->Marque = $Marque;
+        $this->marque = $marque;
+
+        return $this;
+    }
+
+    public function getModele(): ?string
+    {
+        return $this->modele;
+    }
+
+    public function setModele(string $modele): self
+    {
+        $this->modele = $modele;
 
         return $this;
     }
 
     public function getTypeMemoire(): ?string
     {
-        return $this->Type_memoire;
+        return $this->type_memoire;
     }
 
-    public function setTypeMemoire(string $Type_memoire): self
+    public function setTypeMemoire(string $type_memoire): self
     {
-        $this->Type_memoire = $Type_memoire;
+        $this->type_memoire = $type_memoire;
 
         return $this;
     }
 
     public function getFrequenceMemoire(): ?int
     {
-        return $this->Frequence_memoire;
+        return $this->frequence_memoire;
     }
 
-    public function setFrequenceMemoire(int $Frequence_memoire): self
+    public function setFrequenceMemoire(int $frequence_memoire): self
     {
-        $this->Frequence_memoire = $Frequence_memoire;
+        $this->frequence_memoire = $frequence_memoire;
 
         return $this;
     }
 
     public function getCapaciteParBarrette(): ?int
     {
-        return $this->Capacite_par_barrette;
+        return $this->capacite_par_barrette;
     }
 
-    public function setCapaciteParBarrette(int $Capacite_par_barrette): self
+    public function setCapaciteParBarrette(int $capacite_par_barrette): self
     {
-        $this->Capacite_par_barrette = $Capacite_par_barrette;
+        $this->capacite_par_barrette = $capacite_par_barrette;
 
         return $this;
     }
 
     public function getStock(): ?int
     {
-        return $this->Stock;
+        return $this->stock;
     }
 
-    public function setStock(int $Stock): self
+    public function setStock(int $stock): self
     {
-        $this->Stock = $Stock;
+        $this->stock = $stock;
 
         return $this;
     }
@@ -138,13 +138,13 @@ class Ram
      */
     public function getRamId(): Collection
     {
-        return $this->Ram_Id;
+        return $this->ram_id;
     }
 
     public function addRamId(Ordinateur $ramId): self
     {
-        if (!$this->Ram_Id->contains($ramId)) {
-            $this->Ram_Id->add($ramId);
+        if (!$this->ram_id->contains($ramId)) {
+            $this->ram_id->add($ramId);
             $ramId->setRam($this);
         }
 
@@ -153,7 +153,7 @@ class Ram
 
     public function removeRamId(Ordinateur $ramId): self
     {
-        if ($this->Ram_Id->removeElement($ramId)) {
+        if ($this->ram_id->removeElement($ramId)) {
             // set the owning side to null (unless already changed)
             if ($ramId->getRam() === $this) {
                 $ramId->setRam(null);
@@ -162,5 +162,4 @@ class Ram
 
         return $this;
     }
-
 }

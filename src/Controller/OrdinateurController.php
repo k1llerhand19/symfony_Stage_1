@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\Ordinateur;
-use App\Form\OrdinateurFormType;
+use App\Form\OrdinateurType;
 use App\Repository\OrdinateurRepository;
 
 class OrdinateurController extends AbstractController
@@ -31,7 +31,7 @@ class OrdinateurController extends AbstractController
     public function AjouterOrdinateur(Request $request,  EntityManagerInterface $manager): Response
     {
         $ordinateur = new Ordinateur();
-        $form_ordinateur = $this->createForm(OrdinateurFormType::class,$ordinateur);
+        $form_ordinateur = $this->createForm(OrdinateurType::class,$ordinateur);
         $form_ordinateur -> handleRequest($request);
     
         if( $form_ordinateur->isSubmitted() && $form_ordinateur->isValid()){

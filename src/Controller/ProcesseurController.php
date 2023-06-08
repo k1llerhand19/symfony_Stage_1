@@ -9,9 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-use App\Entity\Processeur;
-use App\Form\ProcesseurFormType;
-use App\Repository\ProcesseurRepository;
+use App\Entity\Cpu;
+use App\Form\CpuType;
+use App\Repository\CpuRepository;
 
 class ProcesseurController extends AbstractController
 {
@@ -25,8 +25,8 @@ class ProcesseurController extends AbstractController
 
     #[Route('processeur/ajouter', name: 'processeur.add')]
     public function AjouterProce(Request $request,  EntityManagerInterface $manager): Response
-    {   $processeur = new Processeur();
-        $form_processeur = $this->createForm(ProcesseurFormType::class,$processeur);
+    {   $processeur = new Cpu();
+        $form_processeur = $this->createForm(CpuType::class,$processeur);
         $form_processeur -> handleRequest($request);
     
         if( $form_processeur->isSubmitted() && $form_processeur->isValid()){

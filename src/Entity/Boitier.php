@@ -15,32 +15,31 @@ class Boitier
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 25)]
-    private ?string $Nom = null;
+    #[ORM\Column(length: 50)]
+    private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Modele = null;
+    private ?string $marque = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Marque = null;
+    private ?string $modele = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $Format_boitier = null;
+    private ?string $format_boitier = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $Format_alim = null;
+    private ?string $format_alim = null;
 
     #[ORM\Column]
-    private ?int $Stock = null;
+    private ?int $stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Boitier', targetEntity: Ordinateur::class)]
-    private Collection $Boitier_Id;
+    #[ORM\OneToMany(mappedBy: 'boitier', targetEntity: Ordinateur::class)]
+    private Collection $boitier_id;
 
     public function __construct()
     {
-        $this->Boitier_Id = new ArrayCollection();
+        $this->boitier_id = new ArrayCollection();
     }
-
 
     public function getId(): ?int
     {
@@ -49,72 +48,72 @@ class Boitier
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
-
-        return $this;
-    }
-
-    public function getModele(): ?string
-    {
-        return $this->Modele;
-    }
-
-    public function setModele(string $Modele): self
-    {
-        $this->Modele = $Modele;
+        $this->nom = $nom;
 
         return $this;
     }
 
     public function getMarque(): ?string
     {
-        return $this->Marque;
+        return $this->marque;
     }
 
-    public function setMarque(string $Marque): self
+    public function setMarque(string $marque): self
     {
-        $this->Marque = $Marque;
+        $this->marque = $marque;
+
+        return $this;
+    }
+
+    public function getModele(): ?string
+    {
+        return $this->modele;
+    }
+
+    public function setModele(string $modele): self
+    {
+        $this->modele = $modele;
 
         return $this;
     }
 
     public function getFormatBoitier(): ?string
     {
-        return $this->Format_boitier;
+        return $this->format_boitier;
     }
 
-    public function setFormatBoitier(string $Format_boitier): self
+    public function setFormatBoitier(string $format_boitier): self
     {
-        $this->Format_boitier = $Format_boitier;
+        $this->format_boitier = $format_boitier;
 
         return $this;
     }
 
     public function getFormatAlim(): ?string
     {
-        return $this->Format_alim;
+        return $this->format_alim;
     }
 
-    public function setFormatAlim(string $Format_alim): self
+    public function setFormatAlim(string $format_alim): self
     {
-        $this->Format_alim = $Format_alim;
+        $this->format_alim = $format_alim;
 
         return $this;
     }
 
     public function getStock(): ?int
     {
-        return $this->Stock;
+        return $this->stock;
     }
 
-    public function setStock(int $Stock): self
+    public function setStock(int $stock): self
     {
-        $this->Stock = $Stock;
+        $this->stock = $stock;
 
         return $this;
     }
@@ -124,13 +123,13 @@ class Boitier
      */
     public function getBoitierId(): Collection
     {
-        return $this->Boitier_Id;
+        return $this->boitier_id;
     }
 
     public function addBoitierId(Ordinateur $boitierId): self
     {
-        if (!$this->Boitier_Id->contains($boitierId)) {
-            $this->Boitier_Id->add($boitierId);
+        if (!$this->boitier_id->contains($boitierId)) {
+            $this->boitier_id->add($boitierId);
             $boitierId->setBoitier($this);
         }
 
@@ -139,7 +138,7 @@ class Boitier
 
     public function removeBoitierId(Ordinateur $boitierId): self
     {
-        if ($this->Boitier_Id->removeElement($boitierId)) {
+        if ($this->boitier_id->removeElement($boitierId)) {
             // set the owning side to null (unless already changed)
             if ($boitierId->getBoitier() === $this) {
                 $boitierId->setBoitier(null);
@@ -148,6 +147,4 @@ class Boitier
 
         return $this;
     }
-
-
 }

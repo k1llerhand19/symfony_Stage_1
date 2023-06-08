@@ -15,33 +15,33 @@ class Refroidisseur
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 25)]
-    private ?string $Nom = null;
+    #[ORM\Column(length: 50)]
+    private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Modele = null;
+    private ?string $marque = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Marque = null;
+    private ?string $modele = null;
 
     #[ORM\Column(length: 15)]
-    private ?string $Support_processeur = null;
+    private ?string $support_processeur = null;
 
     #[ORM\Column]
-    private ?int $Vitesse_rota_mini = null;
+    private ?int $vitesse_rota_mini = null;
 
     #[ORM\Column]
-    private ?int $Vitesse_rota_maxi = null;
+    private ?int $vitesse_rota_maxi = null;
 
     #[ORM\Column]
-    private ?int $Stock = null;
+    private ?int $stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Refroidisseur', targetEntity: Ordinateur::class)]
-    private Collection $Refroidisseur_Id;
+    #[ORM\OneToMany(mappedBy: 'refroidisseur', targetEntity: Ordinateur::class)]
+    private Collection $refroidisseur_id;
 
     public function __construct()
     {
-        $this->Refroidisseur_Id = new ArrayCollection();
+        $this->refroidisseur_id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -51,84 +51,84 @@ class Refroidisseur
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
-
-        return $this;
-    }
-
-    public function getModele(): ?string
-    {
-        return $this->Modele;
-    }
-
-    public function setModele(string $Modele): self
-    {
-        $this->Modele = $Modele;
+        $this->nom = $nom;
 
         return $this;
     }
 
     public function getMarque(): ?string
     {
-        return $this->Marque;
+        return $this->marque;
     }
 
-    public function setMarque(string $Marque): self
+    public function setMarque(string $marque): self
     {
-        $this->Marque = $Marque;
+        $this->marque = $marque;
+
+        return $this;
+    }
+
+    public function getModele(): ?string
+    {
+        return $this->modele;
+    }
+
+    public function setModele(string $modele): self
+    {
+        $this->modele = $modele;
 
         return $this;
     }
 
     public function getSupportProcesseur(): ?string
     {
-        return $this->Support_processeur;
+        return $this->support_processeur;
     }
 
-    public function setSupportProcesseur(string $Support_processeur): self
+    public function setSupportProcesseur(string $support_processeur): self
     {
-        $this->Support_processeur = $Support_processeur;
+        $this->support_processeur = $support_processeur;
 
         return $this;
     }
 
     public function getVitesseRotaMini(): ?int
     {
-        return $this->Vitesse_rota_mini;
+        return $this->vitesse_rota_mini;
     }
 
-    public function setVitesseRotaMini(int $Vitesse_rota_mini): self
+    public function setVitesseRotaMini(int $vitesse_rota_mini): self
     {
-        $this->Vitesse_rota_mini = $Vitesse_rota_mini;
+        $this->vitesse_rota_mini = $vitesse_rota_mini;
 
         return $this;
     }
 
     public function getVitesseRotaMaxi(): ?int
     {
-        return $this->Vitesse_rota_maxi;
+        return $this->vitesse_rota_maxi;
     }
 
-    public function setVitesseRotaMaxi(int $Vitesse_rota_maxi): self
+    public function setVitesseRotaMaxi(int $vitesse_rota_maxi): self
     {
-        $this->Vitesse_rota_maxi = $Vitesse_rota_maxi;
+        $this->vitesse_rota_maxi = $vitesse_rota_maxi;
 
         return $this;
     }
 
     public function getStock(): ?int
     {
-        return $this->Stock;
+        return $this->stock;
     }
 
-    public function setStock(int $Stock): self
+    public function setStock(int $stock): self
     {
-        $this->Stock = $Stock;
+        $this->stock = $stock;
 
         return $this;
     }
@@ -138,13 +138,13 @@ class Refroidisseur
      */
     public function getRefroidisseurId(): Collection
     {
-        return $this->Refroidisseur_Id;
+        return $this->refroidisseur_id;
     }
 
     public function addRefroidisseurId(Ordinateur $refroidisseurId): self
     {
-        if (!$this->Refroidisseur_Id->contains($refroidisseurId)) {
-            $this->Refroidisseur_Id->add($refroidisseurId);
+        if (!$this->refroidisseur_id->contains($refroidisseurId)) {
+            $this->refroidisseur_id->add($refroidisseurId);
             $refroidisseurId->setRefroidisseur($this);
         }
 
@@ -153,7 +153,7 @@ class Refroidisseur
 
     public function removeRefroidisseurId(Ordinateur $refroidisseurId): self
     {
-        if ($this->Refroidisseur_Id->removeElement($refroidisseurId)) {
+        if ($this->refroidisseur_id->removeElement($refroidisseurId)) {
             // set the owning side to null (unless already changed)
             if ($refroidisseurId->getRefroidisseur() === $this) {
                 $refroidisseurId->setRefroidisseur(null);

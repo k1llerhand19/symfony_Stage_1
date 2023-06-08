@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\Gpu;
-use App\Form\GpuFormType;
+use App\Form\GpuType;
 use App\Repository\GpuRepository;
 
 class GPUController extends AbstractController
@@ -27,7 +27,7 @@ class GPUController extends AbstractController
     public function AjouterGPU(Request $request,  EntityManagerInterface $manager): Response
     {
         $gpu = new Gpu();
-        $form_gpu = $this->createForm(GpuFormType::class,$gpu);
+        $form_gpu = $this->createForm(GpuType::class,$gpu);
         $form_gpu -> handleRequest($request);
     
         if( $form_gpu->isSubmitted() && $form_gpu->isValid()){

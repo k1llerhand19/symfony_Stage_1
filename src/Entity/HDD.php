@@ -15,30 +15,30 @@ class Hdd
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 25)]
-    private ?string $Nom = null;
+    #[ORM\Column(length: 50)]
+    private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Modele = null;
+    private ?string $marque = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Marque = null;
+    private ?string $modele = null;
 
     #[ORM\Column]
-    private ?int $Capacite = null;
+    private ?int $capacite = null;
 
     #[ORM\Column]
-    private ?int $Vitesse_rotation = null;
+    private ?int $vitesse_rotation = null;
 
     #[ORM\Column]
-    private ?int $Stock = null;
+    private ?int $stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'Hdd', targetEntity: Ordinateur::class)]
-    private Collection $Hdd_Id;
+    #[ORM\OneToMany(mappedBy: 'hdd', targetEntity: Ordinateur::class)]
+    private Collection $hdd_id;
 
     public function __construct()
     {
-        $this->Hdd_Id = new ArrayCollection();
+        $this->hdd_id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -48,72 +48,72 @@ class Hdd
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
-
-        return $this;
-    }
-
-    public function getModele(): ?string
-    {
-        return $this->Modele;
-    }
-
-    public function setModele(string $Modele): self
-    {
-        $this->Modele = $Modele;
+        $this->nom = $nom;
 
         return $this;
     }
 
     public function getMarque(): ?string
     {
-        return $this->Marque;
+        return $this->marque;
     }
 
-    public function setMarque(string $Marque): self
+    public function setMarque(string $marque): self
     {
-        $this->Marque = $Marque;
+        $this->marque = $marque;
+
+        return $this;
+    }
+
+    public function getModele(): ?string
+    {
+        return $this->modele;
+    }
+
+    public function setModele(string $modele): self
+    {
+        $this->modele = $modele;
 
         return $this;
     }
 
     public function getCapacite(): ?int
     {
-        return $this->Capacite;
+        return $this->capacite;
     }
 
-    public function setCapacite(int $Capacite): self
+    public function setCapacite(int $capacite): self
     {
-        $this->Capacite = $Capacite;
+        $this->capacite = $capacite;
 
         return $this;
     }
 
     public function getVitesseRotation(): ?int
     {
-        return $this->Vitesse_rotation;
+        return $this->vitesse_rotation;
     }
 
-    public function setVitesseRotation(int $Vitesse_rotation): self
+    public function setVitesseRotation(int $vitesse_rotation): self
     {
-        $this->Vitesse_rotation = $Vitesse_rotation;
+        $this->vitesse_rotation = $vitesse_rotation;
 
         return $this;
     }
 
     public function getStock(): ?int
     {
-        return $this->Stock;
+        return $this->stock;
     }
 
-    public function setStock(int $Stock): self
+    public function setStock(int $stock): self
     {
-        $this->Stock = $Stock;
+        $this->stock = $stock;
 
         return $this;
     }
@@ -123,13 +123,13 @@ class Hdd
      */
     public function getHddId(): Collection
     {
-        return $this->Hdd_Id;
+        return $this->hdd_id;
     }
 
     public function addHddId(Ordinateur $hddId): self
     {
-        if (!$this->Hdd_Id->contains($hddId)) {
-            $this->Hdd_Id->add($hddId);
+        if (!$this->hdd_id->contains($hddId)) {
+            $this->hdd_id->add($hddId);
             $hddId->setHdd($this);
         }
 
@@ -138,7 +138,7 @@ class Hdd
 
     public function removeHddId(Ordinateur $hddId): self
     {
-        if ($this->Hdd_Id->removeElement($hddId)) {
+        if ($this->hdd_id->removeElement($hddId)) {
             // set the owning side to null (unless already changed)
             if ($hddId->getHdd() === $this) {
                 $hddId->setHdd(null);
@@ -147,6 +147,4 @@ class Hdd
 
         return $this;
     }
-
-   
 }

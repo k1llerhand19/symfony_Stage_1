@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Cm;
+use App\Entity\Cartemere;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Cm>
+ * @extends ServiceEntityRepository<Cartemere>
  *
- * @method Cm|null find($id, $lockMode = null, $lockVersion = null)
- * @method Cm|null findOneBy(array $criteria, array $orderBy = null)
- * @method Cm[]    findAll()
- * @method Cm[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Cartemere|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Cartemere|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Cartemere[]    findAll()
+ * @method Cartemere[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CmRepository extends ServiceEntityRepository
+class CartemereRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Cm::class);
+        parent::__construct($registry, Cartemere::class);
     }
 
-    public function save(Cm $entity, bool $flush = false): void
+    public function save(Cartemere $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class CmRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Cm $entity, bool $flush = false): void
+    public function remove(Cartemere $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class CmRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Cm[] Returns an array of Cm objects
+//     * @return Cartemere[] Returns an array of Cartemere objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class CmRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Cm
+//    public function findOneBySomeField($value): ?Cartemere
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')

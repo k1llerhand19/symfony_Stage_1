@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\SsdRepository;
+use App\Repository\CpuRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: SsdRepository::class)]
-class Ssd
+#[ORM\Entity(repositoryClass: CpuRepository::class)]
+class Cpu
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -24,24 +24,27 @@ class Ssd
     #[ORM\Column(length: 25)]
     private ?string $modele = null;
 
-    #[ORM\Column]
-    private ?int $capacite = null;
+    #[ORM\Column(length: 25)]
+    private ?string $support_cpu = null;
 
     #[ORM\Column]
-    private ?int $vitesse_lecture = null;
+    private ?float $frequence_cpu = null;
 
     #[ORM\Column]
-    private ?int $vitesse_ecriture = null;
+    private ?int $nbr_core = null;
+
+    #[ORM\Column]
+    private ?int $nbr_threads = null;
 
     #[ORM\Column]
     private ?int $stock = null;
 
-    #[ORM\OneToMany(mappedBy: 'ssd', targetEntity: Ordinateur::class)]
-    private Collection $ssd_id;
+    #[ORM\OneToMany(mappedBy: 'cpu', targetEntity: Ordinateur::class)]
+    private Collection $cpu_id;
 
     public function __construct()
     {
-        $this->ssd_id = new ArrayCollection();
+        $this->cpu_id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -85,38 +88,50 @@ class Ssd
         return $this;
     }
 
-    public function getCapacite(): ?int
+    public function getSupportCpu(): ?string
     {
-        return $this->capacite;
+        return $this->support_cpu;
     }
 
-    public function setCapacite(int $capacite): self
+    public function setSupportCpu(string $support_cpu): self
     {
-        $this->capacite = $capacite;
+        $this->support_cpu = $support_cpu;
 
         return $this;
     }
 
-    public function getVitesseLecture(): ?int
+    public function getFrequenceCpu(): ?float
     {
-        return $this->vitesse_lecture;
+        return $this->frequence_cpu;
     }
 
-    public function setVitesseLecture(int $vitesse_lecture): self
+    public function setFrequenceCpu(float $frequence_cpu): self
     {
-        $this->vitesse_lecture = $vitesse_lecture;
+        $this->frequence_cpu = $frequence_cpu;
 
         return $this;
     }
 
-    public function getVitesseEcriture(): ?int
+    public function getNbrCore(): ?int
     {
-        return $this->vitesse_ecriture;
+        return $this->nbr_core;
     }
 
-    public function setVitesseEcriture(int $vitesse_ecriture): self
+    public function setNbrCore(int $nbr_core): self
     {
-        $this->vitesse_ecriture = $vitesse_ecriture;
+        $this->nbr_core = $nbr_core;
+
+        return $this;
+    }
+
+    public function getNbrThreads(): ?int
+    {
+        return $this->nbr_threads;
+    }
+
+    public function setNbrThreads(int $nbr_threads): self
+    {
+        $this->nbr_threads = $nbr_threads;
 
         return $this;
     }
@@ -136,27 +151,27 @@ class Ssd
     /**
      * @return Collection<int, Ordinateur>
      */
-    public function getSsdId(): Collection
+    public function getCpuId(): Collection
     {
-        return $this->ssd_id;
+        return $this->cpu_id;
     }
 
-    public function addSsdId(Ordinateur $ssdId): self
+    public function addCpuId(Ordinateur $cpuId): self
     {
-        if (!$this->ssd_id->contains($ssdId)) {
-            $this->ssd_id->add($ssdId);
-            $ssdId->setSsd($this);
+        if (!$this->cpu_id->contains($cpuId)) {
+            $this->cpu_id->add($cpuId);
+            $cpuId->setCpu($this);
         }
 
         return $this;
     }
 
-    public function removeSsdId(Ordinateur $ssdId): self
+    public function removeCpuId(Ordinateur $cpuId): self
     {
-        if ($this->ssd_id->removeElement($ssdId)) {
+        if ($this->cpu_id->removeElement($cpuId)) {
             // set the owning side to null (unless already changed)
-            if ($ssdId->getSsd() === $this) {
-                $ssdId->setSsd(null);
+            if ($cpuId->getCpu() === $this) {
+                $cpuId->setCpu(null);
             }
         }
 

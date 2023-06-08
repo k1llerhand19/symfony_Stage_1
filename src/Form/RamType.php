@@ -7,21 +7,18 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RamFormType extends AbstractType
+class RamType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Nom')
-            ->add('Modele')
-            ->add('Marque')
-            ->add('Type_memoire')
-            ->add('Frequence_memoire')
-            ->add('Capacite_par_barrette')
-            ->add('Stock')
-           /*->add('Ordinateur', EntityType::class, [
-                'class' => Ram::class,
-                'choice_label' => 'Ram',])*/
+            ->add('nom')
+            ->add('marque')
+            ->add('modele')
+            ->add('type_memoire')
+            ->add('frequence_memoire')
+            ->add('capacite_par_barrette')
+            ->add('stock')
         ;
     }
 

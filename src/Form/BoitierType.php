@@ -2,32 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Hdd;
+use App\Entity\Boitier;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class HddFormType extends AbstractType
+class BoitierType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Nom')
-            ->add('Modele')
-            ->add('Marque')
-            ->add('Capacite')
-            ->add('Vitesse_rotation')
-            ->add('Stock')
-            /*->add('Ordinateur', EntityType::class, [
-                'class' => Hdd::class,
-                'choice_label' => 'Hdd',])*/
+            ->add('nom')
+            ->add('marque')
+            ->add('modele')
+            ->add('format_boitier')
+            ->add('format_alim')
+            ->add('stock')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Hdd::class,
+            'data_class' => Boitier::class,
         ]);
     }
 }
