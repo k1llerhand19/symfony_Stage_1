@@ -24,37 +24,21 @@
         <div class="row">
             <div class="col-4" id="colonne-1"></div>
             <div class="col-4" id="colonne-1">
-                <FORM action=".php" METHOD="GET">
-                    <label for="nom">nom  :</label><br>
-                    <input type="String" id="nom" name="nom1">
-                    <br>
-                    <br>
-                    <label for="Modele">Modele :</label><br>
-                    <input type="String" id="modele" name="modele1">
-                    <br>
-                    <br>
-                    <label for="Marque">Marque :</label><br>
-                    <input type="String" id="Marque" name="Marque1">
-                    <br>
-                    <br>
-                    <label for="Type_memoire">Type de mémoire :</label><br>
-                    <input type="String" id="Tm" name="Tm1">
-                    <br>
-                    <br>	   
-                    <label for="Frequence_memoire">Fréquence mémoire :</label><br>
-                    <input type="number" id="Fm" name="Fm1">
-                    <br>
-                    <br>
-                    <label for="Capacite/barrette">Capacité par barrette :</label><br>
-                    <input type="number" id="Fm" name="Fm1">
-                    <br>
-                    <br>	   
-                    <label for="Stock">Stock :</label><br>
-                    <input type="number" id="stock" name="stock1">	
-                    <br>
-                    <br>
-                    <input type="submit" value="Créer" name="creer">
-                </form>
+                {{form_start(form_ram)}}
+
+                {{form_row(form_ram.Nom, {'attr' : {'placeholder' : "Désignation de la RAM"}})}}
+                {{form_row(form_ram.Modele, {'attr' : {'placeholder' : "Modele de la RAM"}})}}
+                {{form_row(form_ram.Marque, {'attr' : {'placeholder' : "Marque de la RAM"}})}}
+                {{form_row(form_ram.Type_memoire, {'attr' : {'placeholder' : "Type de mémoire"}})}}
+                {{form_row(form_ram.Frequence_memoire, {'attr' : {'placeholder' : "Frequence mémoire de la RAM"}})}}
+                {{form_row(form_ram.Capacite_par_barrette, {'attr' : {'placeholder' : "Capacite par barrette"}})}}
+                {{form_row(form_ram.Stock, {'attr' : {'placeholder' : "Stock en réserve de la RAM"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(form_ram)}}
             </div>
 
             

@@ -24,44 +24,21 @@
         <div class="row">
             <div class="col-4" id="colonne-1"></div>
             <div class="col-4" id="colonne-1">
-                <FORM action="" METHOD="GET">
-                     <label for="nom">nom  :</label>
-                        <br>
-                    <input type="String" id="nom" name="nom1">
-                        <br>
-                        <br>
-                    <label for="Modele">Modele :</label>
-                        <br>
-                    <input type="String" id="modele" name="modele1">
-                        <br>
-                        <br>
-                    <label for="Marque">Marque :</label>
-                        <br>
-                    <input type="String" id="Marque" name="Marque1">
-                        <br>
-                        <br>	   
-                    <label for="Capacite_Stockage">Capacité :</label>
-                        <br>
-                    <input type="number" id="Capa_HDD" name="Capa_HDD1">
-                        <br>
-                        <br>
-                    <label for="Vitesse_lecture">Vitesse de lecture :</label>
-                        <br>
-                    <input type="number" id="Vitesse_lecture" name="Vitesse_lecture1">
-                        <br>
-                        <br>
-                        <label for="Vitesse_Ecriture">Vitesse de écriture :</label>
-                        <br>
-                    <input type="number" id="Vitesse_Ecriture" name="Vitesse_Ecriture1">
-                        <br>
-                        <br>	   
-                    <label for="Stock">Stock :</label>
-                        <br>
-                    <input type="number" id="stock" name="stock1">	
-                        <br>
-                        <br>
-                    <input type="submit" value="Créer" name="creer">
-                </form>
+                 {{form_start(form_ssd)}}
+
+                {{form_row(form_ssd.Nom, {'attr' : {'placeholder' : "Désignation du SSD"}})}}
+                {{form_row(form_ssd.Modele, {'attr' : {'placeholder' : "Modele du SSD"}})}}
+                {{form_row(form_ssd.Marque, {'attr' : {'placeholder' : "Marque du SSD"}})}}
+                {{form_row(form_ssd.Capacite, {'attr' : {'placeholder' : "Capacité du SSD"}})}}
+                {{form_row(form_ssd.Vitesse_lecture, {'attr' : {'placeholder' : "Vitesse_lecture du SSD"}})}}
+                {{form_row(form_ssd.Vitesse_ecriture, {'attr' : {'placeholder' : "Vitesse_ecriture du SSD"}})}}
+                {{form_row(form_ssd.Stock, {'attr' : {'placeholder' : "Stock en réserve du SSD"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(form_ssd)}}
             </div>
         </div>
       </div> 

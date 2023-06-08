@@ -26,18 +26,18 @@ class ProcesseurController extends AbstractController
     #[Route('processeur/ajouter', name: 'processeur.add')]
     public function AjouterProce(Request $request,  EntityManagerInterface $manager): Response
     {   $processeur = new Processeur();
-        $form_processeur = $this->createForm(ProcesseurFormType::class, $processeur);
+        $form_processeur = $this->createForm(ProcesseurFormType::class,$processeur);
         $form_processeur -> handleRequest($request);
     
         if( $form_processeur->isSubmitted() && $form_processeur->isValid()){
             
-            $manager->persist($form_processeur);
+            $manager->persist($processeur);
             $manager->flush();
 
             return $this->redirectToRoute('processeur.show',['id'=> $processeur->getId()
             ]);
         }
-        return $this->render('Processeur/AjouterProcesseur.html.twig', [
+        return $this->render('processeur/AjouterProcesseur.html.twig', [
             'controller_name' => 'ProcesseurController',
             'form_processeur' => $form_processeur->createView()
         ]);
