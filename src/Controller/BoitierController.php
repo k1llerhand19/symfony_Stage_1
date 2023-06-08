@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\Boitier;
-use App\Form\BoitierType;
+use App\Form\BoitierFormType;
 use App\Repository\BoitierRepository;
 
 
@@ -27,7 +27,7 @@ class BoitierController extends AbstractController
     #[Route('boitier/ajouter', name: 'boitier.add')]
     public function AjouterBoitier(Request $request,  EntityManagerInterface $manager): Response
     {   $boitier = new Boitier();
-        $form_boitier = $this->createForm(BoitierType::class,$boitier);
+        $form_boitier = $this->createForm(BoitierFormType::class,$boitier);
         $form_boitier -> handleRequest($request);
     
         if( $form_boitier->isSubmitted() && $form_boitier->isValid()){

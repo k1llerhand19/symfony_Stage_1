@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\Hdd;
-use App\Form\HddType;
+use App\Form\HddFormType;
 use App\Repository\HddRepository;
 
 class HDDController extends AbstractController
@@ -26,7 +26,7 @@ class HDDController extends AbstractController
     #[Route('hdd/ajouter', name: 'hdd.add')]
     public function AjouterHDD(Request $request,  EntityManagerInterface $manager): Response
     {   $hdd = new Hdd();
-        $form_hdd = $this->createForm(HddType::class,$hdd);
+        $form_hdd = $this->createForm(HddFormType::class,$hdd);
         $form_hdd -> handleRequest($request);
     
         if( $form_hdd->isSubmitted() && $form_hdd->isValid()){

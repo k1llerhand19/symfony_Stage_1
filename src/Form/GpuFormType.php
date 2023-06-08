@@ -2,30 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Refroidisseur;
+use App\Entity\Gpu;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RefroidisseurType extends AbstractType
+class GpuFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('nom')
-            ->add('marque')
             ->add('modele')
-            ->add('support_processeur')
-            ->add('vitesse_rota_mini')
-            ->add('vitesse_rota_maxi')
-            ->add('stock')
+            ->add('marque')
+            ->add('chipset_graphique')
+            ->add('taille_memoire')
+            ->add('type_memoire')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Refroidisseur::class,
+            'data_class' => Gpu::class,
         ]);
     }
 }

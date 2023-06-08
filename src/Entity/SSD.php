@@ -19,10 +19,10 @@ class Ssd
     private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $marque = null;
+    private ?string $modele = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $modele = null;
+    private ?string $marque = null;
 
     #[ORM\Column]
     private ?int $capacite = null;
@@ -32,9 +32,6 @@ class Ssd
 
     #[ORM\Column]
     private ?int $vitesse_ecriture = null;
-
-    #[ORM\Column]
-    private ?int $stock = null;
 
     #[ORM\OneToMany(mappedBy: 'ssd', targetEntity: Ordinateur::class)]
     private Collection $ssd_id;
@@ -61,18 +58,6 @@ class Ssd
         return $this;
     }
 
-    public function getMarque(): ?string
-    {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque): self
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
     public function getModele(): ?string
     {
         return $this->modele;
@@ -81,6 +66,18 @@ class Ssd
     public function setModele(string $modele): self
     {
         $this->modele = $modele;
+
+        return $this;
+    }
+
+    public function getMarque(): ?string
+    {
+        return $this->marque;
+    }
+
+    public function setMarque(string $marque): self
+    {
+        $this->marque = $marque;
 
         return $this;
     }
@@ -117,18 +114,6 @@ class Ssd
     public function setVitesseEcriture(int $vitesse_ecriture): self
     {
         $this->vitesse_ecriture = $vitesse_ecriture;
-
-        return $this;
-    }
-
-    public function getStock(): ?int
-    {
-        return $this->stock;
-    }
-
-    public function setStock(int $stock): self
-    {
-        $this->stock = $stock;
 
         return $this;
     }

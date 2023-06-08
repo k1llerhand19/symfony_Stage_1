@@ -19,13 +19,13 @@ class Cpu
     private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $marque = null;
-
-    #[ORM\Column(length: 25)]
     private ?string $modele = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $support_cpu = null;
+    private ?string $marque = null;
+
+    #[ORM\Column(length: 25)]
+    private ?string $support_processeur = null;
 
     #[ORM\Column]
     private ?float $frequence_cpu = null;
@@ -36,15 +36,12 @@ class Cpu
     #[ORM\Column]
     private ?int $nbr_threads = null;
 
-    #[ORM\Column]
-    private ?int $stock = null;
-
     #[ORM\OneToMany(mappedBy: 'cpu', targetEntity: Ordinateur::class)]
-    private Collection $cpu_id;
+    private Collection $Cpu_id;
 
     public function __construct()
     {
-        $this->cpu_id = new ArrayCollection();
+        $this->Cpu_id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -64,18 +61,6 @@ class Cpu
         return $this;
     }
 
-    public function getMarque(): ?string
-    {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque): self
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
     public function getModele(): ?string
     {
         return $this->modele;
@@ -88,14 +73,26 @@ class Cpu
         return $this;
     }
 
-    public function getSupportCpu(): ?string
+    public function getMarque(): ?string
     {
-        return $this->support_cpu;
+        return $this->marque;
     }
 
-    public function setSupportCpu(string $support_cpu): self
+    public function setMarque(string $marque): self
     {
-        $this->support_cpu = $support_cpu;
+        $this->marque = $marque;
+
+        return $this;
+    }
+
+    public function getSupportProcesseur(): ?string
+    {
+        return $this->support_processeur;
+    }
+
+    public function setSupportProcesseur(string $support_processeur): self
+    {
+        $this->support_processeur = $support_processeur;
 
         return $this;
     }
@@ -136,30 +133,18 @@ class Cpu
         return $this;
     }
 
-    public function getStock(): ?int
-    {
-        return $this->stock;
-    }
-
-    public function setStock(int $stock): self
-    {
-        $this->stock = $stock;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Ordinateur>
      */
     public function getCpuId(): Collection
     {
-        return $this->cpu_id;
+        return $this->Cpu_id;
     }
 
     public function addCpuId(Ordinateur $cpuId): self
     {
-        if (!$this->cpu_id->contains($cpuId)) {
-            $this->cpu_id->add($cpuId);
+        if (!$this->Cpu_id->contains($cpuId)) {
+            $this->Cpu_id->add($cpuId);
             $cpuId->setCpu($this);
         }
 
@@ -168,7 +153,7 @@ class Cpu
 
     public function removeCpuId(Ordinateur $cpuId): self
     {
-        if ($this->cpu_id->removeElement($cpuId)) {
+        if ($this->Cpu_id->removeElement($cpuId)) {
             // set the owning side to null (unless already changed)
             if ($cpuId->getCpu() === $this) {
                 $cpuId->setCpu(null);

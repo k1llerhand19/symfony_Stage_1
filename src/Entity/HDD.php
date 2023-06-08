@@ -19,19 +19,16 @@ class Hdd
     private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $marque = null;
+    private ?string $modele = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $modele = null;
+    private ?string $marque = null;
 
     #[ORM\Column]
     private ?int $capacite = null;
 
     #[ORM\Column]
     private ?int $vitesse_rotation = null;
-
-    #[ORM\Column]
-    private ?int $stock = null;
 
     #[ORM\OneToMany(mappedBy: 'hdd', targetEntity: Ordinateur::class)]
     private Collection $hdd_id;
@@ -58,18 +55,6 @@ class Hdd
         return $this;
     }
 
-    public function getMarque(): ?string
-    {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque): self
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
     public function getModele(): ?string
     {
         return $this->modele;
@@ -78,6 +63,18 @@ class Hdd
     public function setModele(string $modele): self
     {
         $this->modele = $modele;
+
+        return $this;
+    }
+
+    public function getMarque(): ?string
+    {
+        return $this->marque;
+    }
+
+    public function setMarque(string $marque): self
+    {
+        $this->marque = $marque;
 
         return $this;
     }
@@ -102,18 +99,6 @@ class Hdd
     public function setVitesseRotation(int $vitesse_rotation): self
     {
         $this->vitesse_rotation = $vitesse_rotation;
-
-        return $this;
-    }
-
-    public function getStock(): ?int
-    {
-        return $this->stock;
-    }
-
-    public function setStock(int $stock): self
-    {
-        $this->stock = $stock;
 
         return $this;
     }

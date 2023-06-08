@@ -19,13 +19,13 @@ class Cartemere
     private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
+    private ?string $modele = null;
+
+    #[ORM\Column(length: 25)]
     private ?string $marque = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $modele = null;
-
-    #[ORM\Column(length: 60)]
-    private ?string $support_cpu = null;
+    private ?string $support_processeur = null;
 
     #[ORM\Column]
     private ?int $nbr_cpu_supporte = null;
@@ -37,13 +37,10 @@ class Cartemere
     private ?string $type_memoire = null;
 
     #[ORM\Column]
-    private ?int $capa_maxi_ram_par_slot = null;
+    private ?int $capacite_maximale_ram_par_slot = null;
 
     #[ORM\Column]
-    private ?int $capa_maxi_ram = null;
-
-    #[ORM\Column]
-    private ?int $stock = null;
+    private ?int $capacite_maximale_ram = null;
 
     #[ORM\OneToMany(mappedBy: 'carte_mere', targetEntity: Ordinateur::class)]
     private Collection $carte_mere_id;
@@ -70,18 +67,6 @@ class Cartemere
         return $this;
     }
 
-    public function getMarque(): ?string
-    {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque): self
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
     public function getModele(): ?string
     {
         return $this->modele;
@@ -94,14 +79,26 @@ class Cartemere
         return $this;
     }
 
-    public function getSupportCpu(): ?string
+    public function getMarque(): ?string
     {
-        return $this->support_cpu;
+        return $this->marque;
     }
 
-    public function setSupportCpu(string $support_cpu): self
+    public function setMarque(string $marque): self
     {
-        $this->support_cpu = $support_cpu;
+        $this->marque = $marque;
+
+        return $this;
+    }
+
+    public function getSupportProcesseur(): ?string
+    {
+        return $this->support_processeur;
+    }
+
+    public function setSupportProcesseur(string $support_processeur): self
+    {
+        $this->support_processeur = $support_processeur;
 
         return $this;
     }
@@ -142,38 +139,26 @@ class Cartemere
         return $this;
     }
 
-    public function getCapaMaxiRamParSlot(): ?int
+    public function getCapaciteMaximaleRamParSlot(): ?int
     {
-        return $this->capa_maxi_ram_par_slot;
+        return $this->capacite_maximale_ram_par_slot;
     }
 
-    public function setCapaMaxiRamParSlot(int $capa_maxi_ram_par_slot): self
+    public function setCapaciteMaximaleRamParSlot(int $capacite_maximale_ram_par_slot): self
     {
-        $this->capa_maxi_ram_par_slot = $capa_maxi_ram_par_slot;
+        $this->capacite_maximale_ram_par_slot = $capacite_maximale_ram_par_slot;
 
         return $this;
     }
 
-    public function getCapaMaxiRam(): ?int
+    public function getCapaciteMaximaleRam(): ?int
     {
-        return $this->capa_maxi_ram;
+        return $this->capacite_maximale_ram;
     }
 
-    public function setCapaMaxiRam(int $capa_maxi_ram): self
+    public function setCapaciteMaximaleRam(int $capacite_maximale_ram): self
     {
-        $this->capa_maxi_ram = $capa_maxi_ram;
-
-        return $this;
-    }
-
-    public function getStock(): ?int
-    {
-        return $this->stock;
-    }
-
-    public function setStock(int $stock): self
-    {
-        $this->stock = $stock;
+        $this->capacite_maximale_ram = $capacite_maximale_ram;
 
         return $this;
     }

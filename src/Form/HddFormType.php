@@ -2,28 +2,28 @@
 
 namespace App\Form;
 
-use App\Entity\Alimentation;
+use App\Entity\Hdd;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AlimentationType extends AbstractType
+class HddFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('nom')
-            ->add('marque')
             ->add('modele')
-            ->add('puissance')
-            ->add('stock')
+            ->add('marque')
+            ->add('capacite')
+            ->add('vitesse_rotation')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Alimentation::class,
+            'data_class' => Hdd::class,
         ]);
     }
 }

@@ -10,10 +10,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\Alimentation;
-use App\Form\AlimentationType;
+use App\Form\AlimentationFormType;
 use App\Repository\AlimentationRepository;
 
 class AlimController extends AbstractController
+
 {
     #[Route('/alim', name: 'alim.show')]
     public function index(): Response
@@ -26,7 +27,7 @@ class AlimController extends AbstractController
     #[Route('alim/ajouter', name: 'alim.add')]
     public function AjouterAlimRequest(Request $request,  EntityManagerInterface $manager): Response
     {   $alim = new Alimentation();
-        $form_alim = $this->createForm(AlimentationType::class,$alim);
+        $form_alim = $this->createForm(AlimentationFormType::class,$alim);
         $form_alim -> handleRequest($request);
     
         if( $form_alim->isSubmitted() && $form_alim->isValid()){

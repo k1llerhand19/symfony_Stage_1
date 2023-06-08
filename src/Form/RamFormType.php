@@ -2,30 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Gpu;
+use App\Entity\Ram;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class GpuType extends AbstractType
+class RamFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('nom')
-            ->add('marque')
             ->add('modele')
-            ->add('chipset_graphique')
-            ->add('taille_memoire')
+            ->add('marque')
             ->add('type_memoire')
-            ->add('stock')
+            ->add('frequence_memoire')
+            ->add('capacite_par_barrette')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Gpu::class,
+            'data_class' => Ram::class,
         ]);
     }
 }

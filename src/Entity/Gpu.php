@@ -19,10 +19,10 @@ class Gpu
     private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $marque = null;
+    private ?string $modele = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $modele = null;
+    private ?string $marque = null;
 
     #[ORM\Column(length: 25)]
     private ?string $chipset_graphique = null;
@@ -32,9 +32,6 @@ class Gpu
 
     #[ORM\Column(length: 25)]
     private ?string $type_memoire = null;
-
-    #[ORM\Column]
-    private ?int $stock = null;
 
     #[ORM\OneToMany(mappedBy: 'gpu', targetEntity: Ordinateur::class)]
     private Collection $gpu_id;
@@ -61,18 +58,6 @@ class Gpu
         return $this;
     }
 
-    public function getMarque(): ?string
-    {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque): self
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
     public function getModele(): ?string
     {
         return $this->modele;
@@ -81,6 +66,18 @@ class Gpu
     public function setModele(string $modele): self
     {
         $this->modele = $modele;
+
+        return $this;
+    }
+
+    public function getMarque(): ?string
+    {
+        return $this->marque;
+    }
+
+    public function setMarque(string $marque): self
+    {
+        $this->marque = $marque;
 
         return $this;
     }
@@ -117,18 +114,6 @@ class Gpu
     public function setTypeMemoire(string $type_memoire): self
     {
         $this->type_memoire = $type_memoire;
-
-        return $this;
-    }
-
-    public function getStock(): ?int
-    {
-        return $this->stock;
-    }
-
-    public function setStock(int $stock): self
-    {
-        $this->stock = $stock;
 
         return $this;
     }

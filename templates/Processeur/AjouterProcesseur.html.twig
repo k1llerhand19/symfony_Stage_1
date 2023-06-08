@@ -26,14 +26,13 @@
             <div class="col-4" id="colonne-1">
                 {{form_start(form_processeur)}}
 
-                {{form_row(form_processeur.Nom, {'attr' : {'placeholder' : "Désignation du processeur"}})}}
-                {{form_row(form_processeur.Modele, {'attr' : {'placeholder' : "Modele du processeur"}})}}
-                {{form_row(form_processeur.Marque, {'attr' : {'placeholder' : "Marque du processeur"}})}}
-                {{form_row(form_processeur.Support_processeur, {'attr' : {'placeholder' : "Support du processeur"}})}}
-                {{form_row(form_processeur.Frequence_cpu, {'attr' : {'placeholder' : "Frequence du CPU"}})}}
-                {{form_row(form_processeur.Nbr_threads, {'attr' : {'placeholder' : "Nombre de threads"}})}}
-                 {{form_row(form_processeur.Nbr_core, {'attr' : {'placeholder' : "Nombre de core"}})}}                
-                {{form_row(form_processeur.Stock, {'attr' : {'placeholder' : "Stock du processeur"}})}}
+                {{form_row(form_processeur.nom, {'attr' : {'placeholder' : "Désignation du processeur"}})}}
+                {{form_row(form_processeur.modele, {'attr' : {'placeholder' : "Modele du processeur"}})}}
+                {{form_row(form_processeur.marque, {'attr' : {'placeholder' : "Marque du processeur"}})}}
+                {{form_row(form_processeur.support_processeur, {'attr' : {'placeholder' : "Support du processeur"}})}}
+                {{form_row(form_processeur.frequence_cpu, {'attr' : {'placeholder' : "Frequence du CPU"}})}}
+                {{form_row(form_processeur.nbr_threads, {'attr' : {'placeholder' : "Nombre de threads"}})}}
+                {{form_row(form_processeur.nbr_core, {'attr' : {'placeholder' : "Nombre de core"}})}}                
 
                 <button  type="submit" class="btn btn-success">
                         Enregistrer

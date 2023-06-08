@@ -2,30 +2,32 @@
 
 namespace App\Form;
 
-use App\Entity\Ssd;
+use App\Entity\Cartemere;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SsdType extends AbstractType
+class CartemereFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('nom')
-            ->add('marque')
             ->add('modele')
-            ->add('capacite')
-            ->add('vitesse_lecture')
-            ->add('vitesse_ecriture')
-            ->add('stock')
+            ->add('marque')
+            ->add('support_processeur')
+            ->add('nbr_cpu_supporte')
+            ->add('chipset')
+            ->add('type_memoire')
+            ->add('capacite_maximale_ram_par_slot')
+            ->add('capacite_maximale_ram')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Ssd::class,
+            'data_class' => Cartemere::class,
         ]);
     }
 }

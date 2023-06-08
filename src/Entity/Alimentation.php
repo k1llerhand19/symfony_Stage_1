@@ -19,18 +19,15 @@ class Alimentation
     private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $marque = null;
+    private ?string $modele = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $modele = null;
+    private ?string $marque = null;
 
     #[ORM\Column]
     private ?int $puissance = null;
 
-    #[ORM\Column]
-    private ?int $stock = null;
-
-    #[ORM\OneToMany(mappedBy: 'alim', targetEntity: Ordinateur::class)]
+    #[ORM\OneToMany(mappedBy: 'alimentaion', targetEntity: Ordinateur::class)]
     private Collection $alim_id;
 
     public function __construct()
@@ -55,18 +52,6 @@ class Alimentation
         return $this;
     }
 
-    public function getMarque(): ?string
-    {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque): self
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
     public function getModele(): ?string
     {
         return $this->modele;
@@ -75,6 +60,18 @@ class Alimentation
     public function setModele(string $modele): self
     {
         $this->modele = $modele;
+
+        return $this;
+    }
+
+    public function getMarque(): ?string
+    {
+        return $this->marque;
+    }
+
+    public function setMarque(string $marque): self
+    {
+        $this->marque = $marque;
 
         return $this;
     }
@@ -91,18 +88,6 @@ class Alimentation
         return $this;
     }
 
-    public function getStock(): ?int
-    {
-        return $this->stock;
-    }
-
-    public function setStock(int $stock): self
-    {
-        $this->stock = $stock;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Ordinateur>
      */
@@ -115,7 +100,7 @@ class Alimentation
     {
         if (!$this->alim_id->contains($alimId)) {
             $this->alim_id->add($alimId);
-            $alimId->setAlim($this);
+            $alimId->setAlimentaion($this);
         }
 
         return $this;
@@ -125,8 +110,8 @@ class Alimentation
     {
         if ($this->alim_id->removeElement($alimId)) {
             // set the owning side to null (unless already changed)
-            if ($alimId->getAlim() === $this) {
-                $alimId->setAlim(null);
+            if ($alimId->getAlimentaion() === $this) {
+                $alimId->setAlimentaion(null);
             }
         }
 

@@ -10,46 +10,50 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\Cartemere;
-use App\Form\CartemereType;
+use App\Form\CartemereFormType;
 use App\Repository\CartemereRepository;
 
-class CarteMereController extends AbstractController
+
+class CartemereController extends AbstractController
 {
     #[Route('/cartemere', name: 'cartemere.show')]
     public function index(): Response
     {
-        return $this->render('carte_mere/index.html.twig', [
-            'controller_name' => 'CarteMereController',
+        return $this->render('cartemere/index.html.twig', [
+            'controller_name' => 'CartemereController',
         ]);
     }
 
+
     #[Route('cartemere/ajouter', name: 'cartemere.add')]
-    public function AjouterCm(Request $request,  EntityManagerInterface $manager): Response
-    {
-        $Cm = new Cartemere();
-        $form_Cm = $this->createForm(CartemereType::class,$Cm);
+    public function AjouterBoitier(Request $request,  EntityManagerInterface $manager): Response
+    {   $cm = new Cartemere();
+        $form_Cm = $this->createForm(CartemereFormType::class,$cm);
         $form_Cm -> handleRequest($request);
     
         if( $form_Cm->isSubmitted() && $form_Cm->isValid()){
             
-            $manager->persist($Cm);
+            $manager->persist($cm);
             $manager->flush();
 
-            return $this->redirectToRoute('cartemere.show',['id'=> $Cm->getId()
+            return $this->redirectToRoute('cartemere.show',['id'=> $cm->getId()
             ]);
         }
 
-        return $this->render('carte_mere/AjouterCM.html.twig', [
-            'controller_name' => 'CarteMereController',
+        return $this->render('cartemere/AjouterCM.html.twig', [
+            'controller_name' => 'CartemereController',
             'form_Cm' => $form_Cm->createView()
         ]);
     }
 
+
+
+
     #[Route('cartemere/{id}', name: 'cartemere.edit')]
-    public function ModifierGPU(): Response
+    public function ModifierBoitier(): Response
     {
-        return $this->render('carte_mere/ModifierCM.html.twig', [
-            'controller_name' => 'AlimController',
+        return $this->render('cartemere/ModifierCM.html.twig', [
+            'controller_name' => 'CartemereController',
         ]);
     }
 }

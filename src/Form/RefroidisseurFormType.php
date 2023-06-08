@@ -2,30 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Ram;
+use App\Entity\Refroidisseur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RamType extends AbstractType
+class RefroidisseurFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('nom')
-            ->add('marque')
             ->add('modele')
-            ->add('type_memoire')
-            ->add('frequence_memoire')
-            ->add('capacite_par_barrette')
-            ->add('stock')
+            ->add('marque')
+            ->add('support_cpu')
+            ->add('vitesse_rotation_minimum')
+            ->add('vitesse_rotation_maximum')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Ram::class,
+            'data_class' => Refroidisseur::class,
         ]);
     }
 }

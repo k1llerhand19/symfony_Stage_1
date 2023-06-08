@@ -17,46 +17,46 @@ class Ordinateur
     private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $marque = null;
+    private ?string $modele = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $modele = null;
+    private ?string $marque = null;
 
     #[ORM\ManyToOne(inversedBy: 'alim_id')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?alimentation $alim = null;
-
-    #[ORM\ManyToOne(inversedBy: 'carte_mere_id')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?cartemere $carte_mere = null;
-
-    #[ORM\ManyToOne(inversedBy: 'cpu_id')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?cpu $cpu = null;
-
-    #[ORM\ManyToOne(inversedBy: 'hdd_id')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?hdd $hdd = null;
-
-    #[ORM\ManyToOne(inversedBy: 'ssd_id')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?ssd $ssd = null;
-
-    #[ORM\ManyToOne(inversedBy: 'refroidisseur_id')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?refroidisseur $refroidisseur = null;
-
-    #[ORM\ManyToOne(inversedBy: 'ram_id')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?ram $ram = null;
-
-    #[ORM\ManyToOne(inversedBy: 'gpu_id')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?gpu $gpu = null;
+    private ?Alimentation $alimentaion = null;
 
     #[ORM\ManyToOne(inversedBy: 'boitier_id')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?boitier $boitier = null;
+    private ?Boitier $boitier = null;
+
+    #[ORM\ManyToOne(inversedBy: 'carte_mere_id')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Cartemere $carte_mere = null;
+
+    #[ORM\ManyToOne(inversedBy: 'Cpu_id')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Cpu $cpu = null;
+
+    #[ORM\ManyToOne(inversedBy: 'gpu_id')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Gpu $gpu = null;
+
+    #[ORM\ManyToOne(inversedBy: 'hdd_id')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Hdd $hdd = null;
+
+    #[ORM\ManyToOne(inversedBy: 'ram_id')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Ram $ram = null;
+
+    #[ORM\ManyToOne(inversedBy: 'refroidisseur_id')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Refroidisseur $refroidisseur = null;
+
+    #[ORM\ManyToOne(inversedBy: 'ssd_id')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Ssd $ssd = null;
 
     public function getId(): ?int
     {
@@ -75,18 +75,6 @@ class Ordinateur
         return $this;
     }
 
-    public function getMarque(): ?string
-    {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque): self
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
     public function getModele(): ?string
     {
         return $this->modele;
@@ -99,110 +87,122 @@ class Ordinateur
         return $this;
     }
 
-    public function getAlim(): ?alimentation
+    public function getMarque(): ?string
     {
-        return $this->alim;
+        return $this->marque;
     }
 
-    public function setAlim(?alimentation $alim): self
+    public function setMarque(string $marque): self
     {
-        $this->alim = $alim;
+        $this->marque = $marque;
 
         return $this;
     }
 
-    public function getCarteMere(): ?cartemere
+    public function getAlimentaion(): ?Alimentation
+    {
+        return $this->alimentaion;
+    }
+
+    public function setAlimentaion(?Alimentation $alimentaion): self
+    {
+        $this->alimentaion = $alimentaion;
+
+        return $this;
+    }
+
+    public function getBoitier(): ?Boitier
+    {
+        return $this->boitier;
+    }
+
+    public function setBoitier(?Boitier $boitier): self
+    {
+        $this->boitier = $boitier;
+
+        return $this;
+    }
+
+    public function getCarteMere(): ?Cartemere
     {
         return $this->carte_mere;
     }
 
-    public function setCarteMere(?cartemere $carte_mere): self
+    public function setCarteMere(?Cartemere $carte_mere): self
     {
         $this->carte_mere = $carte_mere;
 
         return $this;
     }
 
-    public function getCpu(): ?cpu
+    public function getCpu(): ?Cpu
     {
         return $this->cpu;
     }
 
-    public function setCpu(?cpu $cpu): self
+    public function setCpu(?Cpu $cpu): self
     {
         $this->cpu = $cpu;
 
         return $this;
     }
 
-    public function getHdd(): ?hdd
-    {
-        return $this->hdd;
-    }
-
-    public function setHdd(?hdd $hdd): self
-    {
-        $this->hdd = $hdd;
-
-        return $this;
-    }
-
-    public function getSsd(): ?ssd
-    {
-        return $this->ssd;
-    }
-
-    public function setSsd(?ssd $ssd): self
-    {
-        $this->ssd = $ssd;
-
-        return $this;
-    }
-
-    public function getRefroidisseur(): ?refroidisseur
-    {
-        return $this->refroidisseur;
-    }
-
-    public function setRefroidisseur(?refroidisseur $refroidisseur): self
-    {
-        $this->refroidisseur = $refroidisseur;
-
-        return $this;
-    }
-
-    public function getRam(): ?ram
-    {
-        return $this->ram;
-    }
-
-    public function setRam(?ram $ram): self
-    {
-        $this->ram = $ram;
-
-        return $this;
-    }
-
-    public function getGpu(): ?gpu
+    public function getGpu(): ?Gpu
     {
         return $this->gpu;
     }
 
-    public function setGpu(?gpu $gpu): self
+    public function setGpu(?Gpu $gpu): self
     {
         $this->gpu = $gpu;
 
         return $this;
     }
 
-    public function getBoitier(): ?boitier
+    public function getHdd(): ?Hdd
     {
-        return $this->boitier;
+        return $this->hdd;
     }
 
-    public function setBoitier(?boitier $boitier): self
+    public function setHdd(?Hdd $hdd): self
     {
-        $this->boitier = $boitier;
+        $this->hdd = $hdd;
+
+        return $this;
+    }
+
+    public function getRam(): ?Ram
+    {
+        return $this->ram;
+    }
+
+    public function setRam(?Ram $ram): self
+    {
+        $this->ram = $ram;
+
+        return $this;
+    }
+
+    public function getRefroidisseur(): ?Refroidisseur
+    {
+        return $this->refroidisseur;
+    }
+
+    public function setRefroidisseur(?Refroidisseur $refroidisseur): self
+    {
+        $this->refroidisseur = $refroidisseur;
+
+        return $this;
+    }
+
+    public function getSsd(): ?Ssd
+    {
+        return $this->ssd;
+    }
+
+    public function setSsd(?Ssd $ssd): self
+    {
+        $this->ssd = $ssd;
 
         return $this;
     }

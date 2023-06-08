@@ -19,22 +19,19 @@ class Refroidisseur
     private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $marque = null;
-
-    #[ORM\Column(length: 25)]
     private ?string $modele = null;
 
-    #[ORM\Column(length: 15)]
-    private ?string $support_processeur = null;
+    #[ORM\Column(length: 25)]
+    private ?string $marque = null;
+
+    #[ORM\Column(length: 20)]
+    private ?string $support_cpu = null;
 
     #[ORM\Column]
-    private ?int $vitesse_rota_mini = null;
+    private ?int $vitesse_rotation_minimum = null;
 
     #[ORM\Column]
-    private ?int $vitesse_rota_maxi = null;
-
-    #[ORM\Column]
-    private ?int $stock = null;
+    private ?int $vitesse_rotation_maximum = null;
 
     #[ORM\OneToMany(mappedBy: 'refroidisseur', targetEntity: Ordinateur::class)]
     private Collection $refroidisseur_id;
@@ -61,18 +58,6 @@ class Refroidisseur
         return $this;
     }
 
-    public function getMarque(): ?string
-    {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque): self
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
     public function getModele(): ?string
     {
         return $this->modele;
@@ -85,50 +70,50 @@ class Refroidisseur
         return $this;
     }
 
-    public function getSupportProcesseur(): ?string
+    public function getMarque(): ?string
     {
-        return $this->support_processeur;
+        return $this->marque;
     }
 
-    public function setSupportProcesseur(string $support_processeur): self
+    public function setMarque(string $marque): self
     {
-        $this->support_processeur = $support_processeur;
+        $this->marque = $marque;
 
         return $this;
     }
 
-    public function getVitesseRotaMini(): ?int
+    public function getSupportCpu(): ?string
     {
-        return $this->vitesse_rota_mini;
+        return $this->support_cpu;
     }
 
-    public function setVitesseRotaMini(int $vitesse_rota_mini): self
+    public function setSupportCpu(string $support_cpu): self
     {
-        $this->vitesse_rota_mini = $vitesse_rota_mini;
+        $this->support_cpu = $support_cpu;
 
         return $this;
     }
 
-    public function getVitesseRotaMaxi(): ?int
+    public function getVitesseRotationMinimum(): ?int
     {
-        return $this->vitesse_rota_maxi;
+        return $this->vitesse_rotation_minimum;
     }
 
-    public function setVitesseRotaMaxi(int $vitesse_rota_maxi): self
+    public function setVitesseRotationMinimum(int $vitesse_rotation_minimum): self
     {
-        $this->vitesse_rota_maxi = $vitesse_rota_maxi;
+        $this->vitesse_rotation_minimum = $vitesse_rotation_minimum;
 
         return $this;
     }
 
-    public function getStock(): ?int
+    public function getVitesseRotationMaximum(): ?int
     {
-        return $this->stock;
+        return $this->vitesse_rotation_maximum;
     }
 
-    public function setStock(int $stock): self
+    public function setVitesseRotationMaximum(int $vitesse_rotation_maximum): self
     {
-        $this->stock = $stock;
+        $this->vitesse_rotation_maximum = $vitesse_rotation_maximum;
 
         return $this;
     }

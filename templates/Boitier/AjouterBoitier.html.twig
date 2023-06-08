@@ -26,13 +26,12 @@
             <div class="col-4" id="colonne-1">
 
                 {{form_start(form_boitier)}}
-                {{form_row(form_boitier.Nom, {'attr' : {'placeholder' : "Désignation de l'boitier"}})}}
-                {{form_row(form_boitier.Modele, {'attr' : {'placeholder' : "Modele de l'boitier"}})}}
-                {{form_row(form_boitier.Marque, {'attr' : {'placeholder' : "Marque de l'boitier"}})}}
-                {{form_row(form_boitier.Format_boitier, {'attr' : {'placeholder' : "Format du boitier"}})}}
-                {{form_row(form_boitier.Format_alim, {'attr' : {'placeholder' : "Format de l'alimentation"}})}}
-                {{form_row(form_boitier.Stock, {'attr' : {'placeholder' : "Stock du boitier"}})}}
-
+                {{form_row(form_boitier.nom, {'attr' : {'placeholder' : "Désignation de l'boitier"}})}}
+                {{form_row(form_boitier.modele, {'attr' : {'placeholder' : "Modele de l'boitier"}})}}
+                {{form_row(form_boitier.marque, {'attr' : {'placeholder' : "Marque de l'boitier"}})}}
+                {{form_row(form_boitier.format_boitier, {'attr' : {'placeholder' : "Format du boitier"}})}}
+                {{form_row(form_boitier.format_alimentation, {'attr' : {'placeholder' : "Format de l'alimentation"}})}}
+                
                 <button  type="submit" class="btn btn-success">
                         Enregistrer
                 </button>

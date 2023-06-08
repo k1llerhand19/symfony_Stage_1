@@ -19,19 +19,16 @@ class Boitier
     private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $marque = null;
+    private ?string $modele = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $modele = null;
+    private ?string $marque = null;
 
     #[ORM\Column(length: 20)]
     private ?string $format_boitier = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $format_alim = null;
-
-    #[ORM\Column]
-    private ?int $stock = null;
+    private ?string $format_alimentation = null;
 
     #[ORM\OneToMany(mappedBy: 'boitier', targetEntity: Ordinateur::class)]
     private Collection $boitier_id;
@@ -58,18 +55,6 @@ class Boitier
         return $this;
     }
 
-    public function getMarque(): ?string
-    {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque): self
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
     public function getModele(): ?string
     {
         return $this->modele;
@@ -78,6 +63,18 @@ class Boitier
     public function setModele(string $modele): self
     {
         $this->modele = $modele;
+
+        return $this;
+    }
+
+    public function getMarque(): ?string
+    {
+        return $this->marque;
+    }
+
+    public function setMarque(string $marque): self
+    {
+        $this->marque = $marque;
 
         return $this;
     }
@@ -94,26 +91,14 @@ class Boitier
         return $this;
     }
 
-    public function getFormatAlim(): ?string
+    public function getFormatAlimentation(): ?string
     {
-        return $this->format_alim;
+        return $this->format_alimentation;
     }
 
-    public function setFormatAlim(string $format_alim): self
+    public function setFormatAlimentation(string $format_alimentation): self
     {
-        $this->format_alim = $format_alim;
-
-        return $this;
-    }
-
-    public function getStock(): ?int
-    {
-        return $this->stock;
-    }
-
-    public function setStock(int $stock): self
-    {
-        $this->stock = $stock;
+        $this->format_alimentation = $format_alimentation;
 
         return $this;
     }

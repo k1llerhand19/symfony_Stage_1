@@ -19,12 +19,12 @@ class Ram
     private ?string $nom = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $marque = null;
-
-    #[ORM\Column(length: 25)]
     private ?string $modele = null;
 
-    #[ORM\Column(length: 15)]
+    #[ORM\Column(length: 25)]
+    private ?string $marque = null;
+
+    #[ORM\Column(length: 20)]
     private ?string $type_memoire = null;
 
     #[ORM\Column]
@@ -32,9 +32,6 @@ class Ram
 
     #[ORM\Column]
     private ?int $capacite_par_barrette = null;
-
-    #[ORM\Column]
-    private ?int $stock = null;
 
     #[ORM\OneToMany(mappedBy: 'ram', targetEntity: Ordinateur::class)]
     private Collection $ram_id;
@@ -61,18 +58,6 @@ class Ram
         return $this;
     }
 
-    public function getMarque(): ?string
-    {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque): self
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
     public function getModele(): ?string
     {
         return $this->modele;
@@ -81,6 +66,18 @@ class Ram
     public function setModele(string $modele): self
     {
         $this->modele = $modele;
+
+        return $this;
+    }
+
+    public function getMarque(): ?string
+    {
+        return $this->marque;
+    }
+
+    public function setMarque(string $marque): self
+    {
+        $this->marque = $marque;
 
         return $this;
     }
@@ -117,18 +114,6 @@ class Ram
     public function setCapaciteParBarrette(int $capacite_par_barrette): self
     {
         $this->capacite_par_barrette = $capacite_par_barrette;
-
-        return $this;
-    }
-
-    public function getStock(): ?int
-    {
-        return $this->stock;
-    }
-
-    public function setStock(int $stock): self
-    {
-        $this->stock = $stock;
 
         return $this;
     }
