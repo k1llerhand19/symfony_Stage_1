@@ -6,6 +6,7 @@ use App\Entity\Ordinateur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class OrdinateurFormType extends AbstractType
 {
@@ -16,7 +17,7 @@ class OrdinateurFormType extends AbstractType
             ->add('modele')
             ->add('marque')
             ->add('alimentaion',EntityType::class, [
-                'class' => Alimentation::class,
+                'class' => AlimentationFormType::class,
                 'choice_label' => 'nom',])
             ->add('boitier', EntityType::class, [
                 'class' => Boitier::class,
